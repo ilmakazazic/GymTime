@@ -8,6 +8,7 @@ using AutoMapper;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.EF;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTeretane.WebAPI.Services
 {
@@ -15,11 +16,14 @@ namespace eTeretane.WebAPI.Services
     {
         private readonly eTeretaneContext _context;
         private readonly IMapper _mapper;
+        private readonly IKorisnickiNalogService _korisnickiNalogService;
 
-        public ClanService(eTeretaneContext context, IMapper mapper)
+
+        public ClanService(eTeretaneContext context, IMapper mapper, IKorisnickiNalogService nalog)
         {
             _context = context;
             _mapper = mapper;
+            _korisnickiNalogService = nalog;
         }
         public List<Clanovi> Get(ClanSearchRequest request)
         {
@@ -33,34 +37,32 @@ namespace eTeretane.WebAPI.Services
             {
                 querry = querry.Where(x => x.Prezime.StartsWith(request.Prezime));
             }
+            if (!string.IsNullOrWhiteSpace(request?.Username))
+            {
+                querry = querry.Where(x => x.KorisnickiNalog.Username.StartsWith(request.Prezime));
+            }
 
-            var list = querry.ToList();
+            var list = querry.Include(c=>c.KorisnickiNalog).ToList();
             return _mapper.Map<List<Model.Clanovi>>(list);
         }
 
         public Clanovi GetById(int id)
         {
-            var entity = _context.Clan.Find(id);
+            var entity = _context.Clan.Include(c => c.KorisnickiNalog).Single(v=>v.ClanId==id);
             return _mapper.Map<Model.Clanovi>(entity);
         }
 
         public Clanovi Insert(ClanUpsertRequest request)
         {
             var entity = _mapper.Map<Database.Clan>(request);
+            var nalogId = _korisnickiNalogService.Insert(request).KorisnickiNalogId;
 
-            if (request.Password != request.PasswordConfirmation)
-            {
-                throw new Exception("Lozinke se ne poklapaju");
-            }
-
-            //entity.LozinkaSalt = GenerateSalt();
-            //entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
-            //entity.DatumRegistracije = DateTime.Now;
-            //entity.Status = true;
-
-
+            entity.KorisnickiNalogId = nalogId;
+            entity.GradId = request.GradId;
+            entity.DatumRegistracije = DateTime.Now;
             _context.Clan.Add(entity);
             _context.SaveChanges();
+
             return _mapper.Map<Model.Clanovi>(entity);
 
         }
@@ -72,44 +74,14 @@ namespace eTeretane.WebAPI.Services
             _context.Clan.Update(entity);
 
 
-            if (!string.IsNullOrWhiteSpace(request.Password))
-            {
-                if (request.Password != request.PasswordConfirmation)
-                {
-                    throw new Exception("Lozinke se ne poklapaju");
-
-                }
-                // DODAT CEMO KOD ZA HASH
-            }
-
             _mapper.Map(request, entity);
-            var a = request;
+
+            _korisnickiNalogService.Update(entity.KorisnickiNalogId, request);
 
             _context.SaveChanges();
             return _mapper.Map<Model.Clanovi>(entity);
         }
 
-        private static string GenerateHash(string Salt, string password)
-        {
-            byte[] src = Convert.FromBase64String(Salt);
-            byte[] bytes = Encoding.Unicode.GetBytes(password);
-            byte[] dst = new byte[src.Length + bytes.Length];
-
-            System.Buffer.BlockCopy(src, 0, dst, 0, src.Length);
-            System.Buffer.BlockCopy(bytes, 0, dst, src.Length, bytes.Length);
-
-            HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
-            byte[] inArray = algorithm.ComputeHash(dst);
-            return Convert.ToBase64String(inArray);
-
-        }
-
-        private static string GenerateSalt()
-        {
-            var buf = new byte[16]; //deklaracija buffera
-            (new RNGCryptoServiceProvider()).GetBytes(buf); //random broj
-            return Convert.ToBase64String(buf); //konvertujemo ponovu u bazni tip da izbjegnemo error
-        }
 
     }
 }

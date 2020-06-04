@@ -28,9 +28,16 @@ namespace eTeretane.Mobile.ViewModels
             get { return _date; }
             set { SetProperty(ref _date, value); }
         }
+        public int _korisnikId;
+        public int KoriniskId
+        {
+            get { return _korisnikId; }
+            set { SetProperty(ref _korisnikId, value); }
+        }
 
         public async Task Init()
         {
+            //KoriniskId = APIServices.NalogId;
             var date = _date.Date.ToString("yyyy-MM-dd HH:mm:ss.fffffff");
             var list = await _treningServices.GetByDateGym<IEnumerable<Trening>>(date, Teretana.TeretanaId, 0);
 

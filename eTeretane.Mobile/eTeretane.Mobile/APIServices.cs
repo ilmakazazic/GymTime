@@ -11,6 +11,7 @@ namespace eTeretane.Mobile
     {
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static int NalogId { get; set; }
 
 #if DEBUG
         private string _apiurl = "http://localhost:52089/api";
@@ -35,7 +36,7 @@ namespace eTeretane.Mobile
                 url += "?";
                 url += await search.ToQueryString();
             }
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
 
@@ -44,7 +45,7 @@ namespace eTeretane.Mobile
             var url = $"{_apiurl}/{_route}/{id}";
 
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
 
@@ -53,7 +54,7 @@ namespace eTeretane.Mobile
             var url = $"{_apiurl}/{_route}";
 
 
-            return await url.PostJsonAsync(request).ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
         }
 
         public async Task<T> Update<T>(object id, object request)
@@ -61,7 +62,7 @@ namespace eTeretane.Mobile
             var url = $"{_apiurl}/{_route}/{id}";
 
 
-            return await url.PutJsonAsync(request).ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
         }
 
@@ -70,7 +71,7 @@ namespace eTeretane.Mobile
             var url = $"{_apiurl}/{_route}/GetByDateGym/{date}/{id}/{id2}";
 
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
     }

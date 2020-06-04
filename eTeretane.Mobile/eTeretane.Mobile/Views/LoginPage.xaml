@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:eTeretane.Mobile.ViewModels;assembly=eTeretane.Mobile"
+             mc:Ignorable="d"
+             x:Class="eTeretane.Mobile.Views.LoginPage"
+             BackgroundColor="#2D74AC">
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#2D74AC" >
+            <Label Margin="20" FontSize="40" TextColor="LightGray"  Text="GymTime"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+
+            <Label  TextColor="LightGray" Text="Username:" 
+            />
+            <Entry Text="{Binding Username}"></Entry>
+            <Label Text="{Binding UserError}" IsVisible="{Binding VisibleKors}" Margin="5"
+                   TextColor="Red" />
+
+            <Label TextColor="LightGray" Text="Password:" 
+            />
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+            <Label Text="{Binding PassError}"  Margin="5"
+                   IsVisible="{Binding VisiblePass}" TextColor="Red" />
+
+
+            <Button Command="{Binding LoginCommand}"  BackgroundColor="LightGreen" Text="Login"></Button>
+            <Button Clicked="Button_OnClicked"  BackgroundColor="Transparent" BorderColor="DeepSkyBlue" Text="Registracija"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

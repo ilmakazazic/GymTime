@@ -72,14 +72,15 @@ namespace eTeretane.WebAPI.Services
         {
             var entity = _context.KorisnickiNalog.Find(id);
 
+            _context.KorisnickiNalog.Attach(entity);
+            _context.KorisnickiNalog.Update(entity);
+
             foreach (var nalog in _context.KorisnickiNalog.ToList())
             {
                 if (nalog.Username == request.Username && nalog.Username != nalog.Username)
                     throw new UserException("Username je zauzet!");
             }
 
-
-            entity.Username = request.Username;
 
             if (request.Password != null)
             {
@@ -90,6 +91,29 @@ namespace eTeretane.WebAPI.Services
                 entity.PasswordSalt = GenerateSalt();
                 entity.PasswordHash = GenerateHash(entity.PasswordSalt, request.Password);
             }
+
+            entity.Username = request.Username;
+
+            var entityUloge = _context.KorisniciUloge.Where(c => c.KorisnickiNalogId == entity.KorisnickiNalogId).ToList();
+
+            foreach (var postojuceUloge in entityUloge)
+            {
+                _context.KorisniciUloge.Remove(postojuceUloge);
+            }
+            
+            _context.SaveChanges();
+
+            foreach (var novaUloga in request.Uloge)
+            {
+                Database.KorisniciUloge korisniciUloge = new Database.KorisniciUloge();
+
+                korisniciUloge.KorisnickiNalogId = entity.KorisnickiNalogId;
+                korisniciUloge.UlogaId = novaUloga;
+                korisniciUloge.DatumIzmjene = DateTime.Now;
+
+                _context.KorisniciUloge.Add(korisniciUloge);
+            }
+
             _context.SaveChanges();
             return _mapper.Map<Model.KorisnickiNalog>(entity);
         }
