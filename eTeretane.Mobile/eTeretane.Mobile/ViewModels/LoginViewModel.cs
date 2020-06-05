@@ -81,6 +81,7 @@ namespace eTeretane.Mobile.ViewModels
                     {
                      
                             APIServices.NalogId = u.KorisnickiNalogId;
+                            APIServices.ClanId = u.ClanId;
                     }
                 }
 

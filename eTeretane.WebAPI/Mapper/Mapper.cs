@@ -41,6 +41,12 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<Clan, Model.Clanovi>(); // means you want to map from User to UserDTO
             CreateMap<Clan, ClanUpsertRequest>().ReverseMap();
 
+            CreateMap<TreningDetalji, Model.TreningDetalji>().ReverseMap();
+            CreateMap<TreningDetaljiUpsertRequest, TreningDetalji>().ReverseMap();
+
+            CreateMap<TreningZahtjev, Model.TreningZahtjev>().ReverseMap();
+            CreateMap<TreningZahtjevUpsertRequest, TreningZahtjev>().ReverseMap();
+
 
 
         }

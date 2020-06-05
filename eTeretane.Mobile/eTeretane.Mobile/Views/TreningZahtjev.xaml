@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:eTeretane.Mobile.ViewModels;assembly=eTeretane.Mobile"
+             mc:Ignorable="d"
+             x:Class="eTeretane.Mobile.Views.TreningZahtjev">
+    <ContentPage.BindingContext>
+        <viewModels:TreningZahtjevViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--<StackLayout Padding="10">
+            <Label Text="Zahtjev za trening" Margin="20" HorizontalOptions="Center"></Label>
+            <Label Text="Ime"></Label>
+
+            <Picker Title="Odaberi trenera: " ItemsSource="{Binding KorisnikList}"
+                    ItemDisplayBinding="{Binding ImePrezime}"
+                    SelectedItem="{Binding Korisnik}"
+            />
+
+            <Label TextColor="LightGray"  Text="Prezime"></Label>
+            <Entry Text="{Binding Prezime}"></Entry>
+            <Label Text="{Binding PrezimeError}" Margin="5"  IsVisible="{Binding VisiblePrezime}"
+                   TextColor="Red"></Label>
+
+            <Label TextColor="LightGray"   Text="Telefon:"/>
+            <Entry Text="{Binding Telefon}"></Entry>
+            <Label Text="{Binding TelError}" Margin="5"
+                   IsVisible="{Binding VisibleTel}" TextColor="Red" />
+
+            <Picker TextColor="LightGray"  Title="Odaberi grad:" ItemsSource="{Binding GradoviList}"
+                    ItemDisplayBinding="{Binding Naziv}"
+                    SelectedItem="{Binding Grad}"
+            />
+            <Label Text="{Binding GradError}" Margin="5"
+                   IsVisible="{Binding VisibleGrad}" TextColor="Red" />
+
+            <Label TextColor="LightGray"   Text="Username:"/>
+            <Entry Text="{Binding Username}" ></Entry>
+            <Label Text="{Binding UsernameError}" Margin="5"
+        IsVisible="{Binding VisibleUsername}" TextColor="Red" />
+
+            <Label TextColor="LightGray"   Text="Password:"/>
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+            <Label Text="{Binding PassError}" Margin="5"
+        IsVisible="{Binding VisiblePass}" TextColor="Red" />
+
+            <Label  TextColor="LightGray"  Text="Confrim password:" />
+            <Entry Text="{Binding confPassword}" IsPassword="True"></Entry>
+            <Label Text="{Binding confPassError}" Margin="5"
+        IsVisible="{Binding VisibleconfPass}" TextColor="Red" />
+
+
+
+            <Button Clicked="Button_OnClicked" BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="LightGray" Text="Registruj se" />
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

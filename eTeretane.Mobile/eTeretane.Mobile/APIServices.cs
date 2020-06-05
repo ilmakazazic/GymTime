@@ -12,6 +12,8 @@ namespace eTeretane.Mobile
         public static string Username { get; set; }
         public static string Password { get; set; }
         public static int NalogId { get; set; }
+        public static int ClanId { get; set; }
+
 
 #if DEBUG
         private string _apiurl = "http://localhost:52089/api";

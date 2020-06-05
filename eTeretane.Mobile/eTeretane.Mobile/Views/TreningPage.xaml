@@ -21,7 +21,7 @@
                         Format="D"
                         Margin="30, 0, 0, 30"
                         DateSelected="DatePicker_OnDateSelected" />
-            <ListView ItemsSource="{Binding TreningList}"  >
+            <ListView ItemsSource="{Binding TreningList}" ItemSelected="ListView_OnItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
