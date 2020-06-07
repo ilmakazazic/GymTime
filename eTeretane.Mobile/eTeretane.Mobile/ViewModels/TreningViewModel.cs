@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using eTeretane.Mobile.Views;
 using eTeretane.Model;
 using Xamarin.Forms;
 
@@ -20,6 +21,8 @@ namespace eTeretane.Mobile.ViewModels
         public ObservableCollection<Trening> TreningList { get; set; } = new ObservableCollection<Trening>();
 
         public ICommand InitCommand { get; set; }
+        public ICommand ZahtjeCommand { get; set; }
+
         public Teretane Teretana { get; set; }
 
         public DateTime _date = DateTime.Now;
@@ -48,6 +51,7 @@ namespace eTeretane.Mobile.ViewModels
             }
         }
 
+      
 
     }
 }

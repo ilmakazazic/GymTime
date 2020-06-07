@@ -10,50 +10,34 @@
         <viewModels:TreningZahtjevViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <!--<StackLayout Padding="10">
+        <StackLayout Padding="10">
             <Label Text="Zahtjev za trening" Margin="20" HorizontalOptions="Center"></Label>
             <Label Text="Ime"></Label>
 
-            <Picker Title="Odaberi trenera: " ItemsSource="{Binding KorisnikList}"
+            <Picker Title="Odaberi trenera: " ItemsSource="{Binding KorisniciList}"
                     ItemDisplayBinding="{Binding ImePrezime}"
                     SelectedItem="{Binding Korisnik}"
             />
 
-            <Label TextColor="LightGray"  Text="Prezime"></Label>
-            <Entry Text="{Binding Prezime}"></Entry>
-            <Label Text="{Binding PrezimeError}" Margin="5"  IsVisible="{Binding VisiblePrezime}"
-                   TextColor="Red"></Label>
+            <Label Text="Odaberi datum:"/>
 
-            <Label TextColor="LightGray"   Text="Telefon:"/>
-            <Entry Text="{Binding Telefon}"></Entry>
-            <Label Text="{Binding TelError}" Margin="5"
-                   IsVisible="{Binding VisibleTel}" TextColor="Red" />
-
-            <Picker TextColor="LightGray"  Title="Odaberi grad:" ItemsSource="{Binding GradoviList}"
-                    ItemDisplayBinding="{Binding Naziv}"
-                    SelectedItem="{Binding Grad}"
+            <DatePicker Date="{Binding Date}" 
+                        Format="D"
+                        Margin="30, 0, 0, 30"
+                       />
+            <Label Text="Odaberi vrijeme pocetka treninga:"/>
+            <TimePicker Time="{Binding PocetakTime}" 
+                         Format="t"
+                         Margin="30, 0, 0, 30"
+             />
+            <Label Text="Odaberi vrijeme kraja treninga:"/>
+            <TimePicker Time="{Binding KrajTime}" 
+                        Format="t"
+                        Margin="30, 0, 0, 30"
             />
-            <Label Text="{Binding GradError}" Margin="5"
-                   IsVisible="{Binding VisibleGrad}" TextColor="Red" />
-
-            <Label TextColor="LightGray"   Text="Username:"/>
-            <Entry Text="{Binding Username}" ></Entry>
-            <Label Text="{Binding UsernameError}" Margin="5"
-        IsVisible="{Binding VisibleUsername}" TextColor="Red" />
-
-            <Label TextColor="LightGray"   Text="Password:"/>
-            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
-            <Label Text="{Binding PassError}" Margin="5"
-        IsVisible="{Binding VisiblePass}" TextColor="Red" />
-
-            <Label  TextColor="LightGray"  Text="Confrim password:" />
-            <Entry Text="{Binding confPassword}" IsPassword="True"></Entry>
-            <Label Text="{Binding confPassError}" Margin="5"
-        IsVisible="{Binding VisibleconfPass}" TextColor="Red" />
 
 
-
-            <Button Clicked="Button_OnClicked" BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="LightGray" Text="Registruj se" />
-        </StackLayout>-->
+            <Button Clicked="ZahtjevSlanje_OnClicked"  BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="DeepSkyBlue" Text="Posalji zahtjev " />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eTeretane.WebAPI.EF;
 
 namespace eTeretane.WebAPI.Migrations
 {
     [DbContext(typeof(eTeretaneContext))]
-    partial class eTeretaneContextModelSnapshot : ModelSnapshot
+    [Migration("20200607000127_NovaTabela_TreningDodatni")]
+    partial class NovaTabela_TreningDodatni
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -494,9 +496,6 @@ namespace eTeretane.WebAPI.Migrations
 
                     b.Property<DateTime>("PocetakTreninga")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("Prihvacen")
-                        .HasColumnType("bit");
 
                     b.Property<int>("TeretanaId")
                         .HasColumnType("int");

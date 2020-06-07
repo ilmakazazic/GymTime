@@ -80,5 +80,12 @@ namespace eTeretane.Mobile.Views
                 }
             }
         }
+
+
+        private async void Button_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TreningZahtjev(model.Teretana));
+
+        }
     }
 }

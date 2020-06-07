@@ -37,7 +37,7 @@ namespace eTeretane.WebAPI.EF
         public DbSet<TreningZahtjev> TreningZahtjev { get; set; }
         public DbSet<KuponPopust> KuponPopust { get; set; }
         public DbSet<KorisnickiNalog> KorisnickiNalog { get; set; }
-
+        public DbSet<TreningDodatni> TreningDodatni { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 

@@ -11,5 +11,10 @@ namespace eTeretane.Model.Requests
 
         public bool Odobren { get; set; }
 
+        public string DatumOdrzavanja { get; set; }
+        public string PocetakTreninga { get; set; }
+        public string KrajTreninga { get; set; }
+
+
     }
 }

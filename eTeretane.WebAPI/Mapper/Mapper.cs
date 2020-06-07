@@ -48,6 +48,9 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<TreningZahtjevUpsertRequest, TreningZahtjev>().ReverseMap();
 
 
+            CreateMap<TreningDodatni, Model.TreningDodatni>().ReverseMap();
+            CreateMap<TreningDodatniUpsertRequest, TreningDodatni>().ReverseMap();
+
 
         }
 

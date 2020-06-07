@@ -21,6 +21,7 @@
                         Format="D"
                         Margin="30, 0, 0, 30"
                         DateSelected="DatePicker_OnDateSelected" />
+            <Button Clicked="Button_OnClicked"  BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="DeepSkyBlue" Text="Posalji zahtjev " />
             <ListView ItemsSource="{Binding TreningList}" ItemSelected="ListView_OnItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>

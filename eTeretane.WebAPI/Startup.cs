@@ -64,7 +64,9 @@ namespace eTeretane.WebAPI
             services.AddScoped<ICRUDService<Model.KuponPopusti, object, KuponUpsertRequest, KuponUpsertRequest>, BaseCRUDService<Model.KuponPopusti, object, KuponPopust, KuponUpsertRequest, KuponUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>, BaseCRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetalji, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.TreningZahtjev, object, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>, BaseCRUDService<Model.TreningZahtjev, object, TreningZahtjev, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>>();
+            services.AddScoped<ICRUDService<Model.TreningDodatni, object, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest>, BaseCRUDService<Model.TreningDodatni, object, TreningDodatni, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest>>();
 
+            
             services.AddScoped<ICRUDService<Model.Trening, object, TreningUpsertRequest, TreningUpsertRequest>, TreningService>();
             services.AddScoped<ITreningService, TreningService>();
 
