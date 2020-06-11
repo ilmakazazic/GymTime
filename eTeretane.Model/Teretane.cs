@@ -16,5 +16,6 @@ namespace eTeretane.Model
         public byte[] SlikaThumb { get; set; }
         public int GradId { get; set; }
 
+        public string Grad { get; set; }
     }
 }

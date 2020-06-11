@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace eTeretane.WebAPI.Controllers
 {
 
-    public class TreningZahtjevController : BaseCRUDController<TreningZahtjev, object, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>
+    public class TreningZahtjevController : BaseCRUDController<TreningZahtjev, TreningZahtjevSearchRequest, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>
     {
-        public TreningZahtjevController(ICRUDService<TreningZahtjev, object, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest> service) : base(service)
+        public TreningZahtjevController(ICRUDService<TreningZahtjev, TreningZahtjevSearchRequest, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest> service) : base(service)
         {
         }
     }

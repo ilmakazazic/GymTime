@@ -52,7 +52,6 @@
             this.clbUloge = new System.Windows.Forms.CheckedListBox();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.txtPretrazi = new System.Windows.Forms.TextBox();
-            this.btnPretrazi = new System.Windows.Forms.Button();
             this.clbLicence = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dtpPolaganje = new System.Windows.Forms.DateTimePicker();
@@ -60,6 +59,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.btnUrediLicence = new System.Windows.Forms.Button();
+            this.btnPretrazi = new System.Windows.Forms.Button();
             this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -282,18 +282,6 @@
             this.txtPretrazi.Size = new System.Drawing.Size(321, 23);
             this.txtPretrazi.TabIndex = 28;
             // 
-            // btnPretrazi
-            // 
-            this.btnPretrazi.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnPretrazi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPretrazi.Location = new System.Drawing.Point(351, 221);
-            this.btnPretrazi.Name = "btnPretrazi";
-            this.btnPretrazi.Size = new System.Drawing.Size(78, 32);
-            this.btnPretrazi.TabIndex = 29;
-            this.btnPretrazi.Text = "Pretrazi";
-            this.btnPretrazi.UseVisualStyleBackColor = false;
-            this.btnPretrazi.Click += new System.EventHandler(this.btnPretrazi_Click);
-            // 
             // clbLicence
             // 
             this.clbLicence.FormattingEnabled = true;
@@ -356,6 +344,18 @@
             this.btnUrediLicence.UseVisualStyleBackColor = false;
             this.btnUrediLicence.Click += new System.EventHandler(this.btnUrediLicence_Click);
             // 
+            // btnPretrazi
+            // 
+            this.btnPretrazi.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPretrazi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPretrazi.Location = new System.Drawing.Point(351, 221);
+            this.btnPretrazi.Name = "btnPretrazi";
+            this.btnPretrazi.Size = new System.Drawing.Size(78, 32);
+            this.btnPretrazi.TabIndex = 29;
+            this.btnPretrazi.Text = "Pretrazi";
+            this.btnPretrazi.UseVisualStyleBackColor = false;
+            this.btnPretrazi.Click += new System.EventHandler(this.btnPretrazi_Click);
+            // 
             // KorisnikId
             // 
             this.KorisnikId.DataPropertyName = "KorisnikId";
@@ -393,7 +393,7 @@
             // 
             // KorisnickoIme
             // 
-            this.KorisnickoIme.DataPropertyName = "Username";
+            this.KorisnickoIme.DataPropertyName = "KorisnickoIme";
             this.KorisnickoIme.HeaderText = "Korisnicko ime";
             this.KorisnickoIme.Name = "KorisnickoIme";
             this.KorisnickoIme.ReadOnly = true;
@@ -466,7 +466,6 @@
         private System.Windows.Forms.CheckedListBox clbUloge;
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.TextBox txtPretrazi;
-        private System.Windows.Forms.Button btnPretrazi;
         private System.Windows.Forms.CheckedListBox clbLicence;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtpPolaganje;
@@ -474,6 +473,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button btnUrediLicence;
+        private System.Windows.Forms.Button btnPretrazi;
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;

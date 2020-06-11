@@ -33,12 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTeretanePrikaz = new System.Windows.Forms.DataGridView();
-            this.TeretanaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RadnoVrijemeOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RadnoVrijemeDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnPretraga = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -57,6 +51,12 @@
             this.cmbGradovi = new System.Windows.Forms.ComboBox();
             this.timePickerDO = new System.Windows.Forms.DateTimePicker();
             this.timePickerOD = new System.Windows.Forms.DateTimePicker();
+            this.TeretanaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RadnoVrijemeOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RadnoVrijemeDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeretanePrikaz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).BeginInit();
             this.SuspendLayout();
@@ -115,48 +115,6 @@
             this.dgvTeretanePrikaz.Size = new System.Drawing.Size(1158, 265);
             this.dgvTeretanePrikaz.TabIndex = 0;
             this.dgvTeretanePrikaz.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTeretanePrikaz_MouseDoubleClick);
-            // 
-            // TeretanaId
-            // 
-            this.TeretanaId.DataPropertyName = "TeretanaId";
-            this.TeretanaId.HeaderText = "TeretanaId";
-            this.TeretanaId.Name = "TeretanaId";
-            this.TeretanaId.ReadOnly = true;
-            this.TeretanaId.Visible = false;
-            // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            this.Naziv.ReadOnly = true;
-            // 
-            // Adresa
-            // 
-            this.Adresa.DataPropertyName = "Adresa";
-            this.Adresa.HeaderText = "Adresa";
-            this.Adresa.Name = "Adresa";
-            this.Adresa.ReadOnly = true;
-            // 
-            // RadnoVrijemeOD
-            // 
-            this.RadnoVrijemeOD.DataPropertyName = "PocetakRadnoVrijeme";
-            this.RadnoVrijemeOD.HeaderText = "Radno vrijeme od";
-            this.RadnoVrijemeOD.Name = "RadnoVrijemeOD";
-            this.RadnoVrijemeOD.ReadOnly = true;
-            // 
-            // RadnoVrijemeDO
-            // 
-            this.RadnoVrijemeDO.DataPropertyName = "KrajRadnoVrijeme";
-            this.RadnoVrijemeDO.HeaderText = "Radno vrijeme do";
-            this.RadnoVrijemeDO.Name = "RadnoVrijemeDO";
-            this.RadnoVrijemeDO.ReadOnly = true;
-            // 
-            // Grad
-            // 
-            this.Grad.HeaderText = "Grad";
-            this.Grad.Name = "Grad";
-            this.Grad.ReadOnly = true;
             // 
             // txtPretraga
             // 
@@ -320,6 +278,49 @@
             this.timePickerOD.Size = new System.Drawing.Size(135, 23);
             this.timePickerOD.TabIndex = 25;
             // 
+            // TeretanaId
+            // 
+            this.TeretanaId.DataPropertyName = "TeretanaId";
+            this.TeretanaId.HeaderText = "TeretanaId";
+            this.TeretanaId.Name = "TeretanaId";
+            this.TeretanaId.ReadOnly = true;
+            this.TeretanaId.Visible = false;
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            // 
+            // Adresa
+            // 
+            this.Adresa.DataPropertyName = "Adresa";
+            this.Adresa.HeaderText = "Adresa";
+            this.Adresa.Name = "Adresa";
+            this.Adresa.ReadOnly = true;
+            // 
+            // RadnoVrijemeOD
+            // 
+            this.RadnoVrijemeOD.DataPropertyName = "PocetakRadnoVrijeme";
+            this.RadnoVrijemeOD.HeaderText = "Radno vrijeme od";
+            this.RadnoVrijemeOD.Name = "RadnoVrijemeOD";
+            this.RadnoVrijemeOD.ReadOnly = true;
+            // 
+            // RadnoVrijemeDO
+            // 
+            this.RadnoVrijemeDO.DataPropertyName = "KrajRadnoVrijeme";
+            this.RadnoVrijemeDO.HeaderText = "Radno vrijeme do";
+            this.RadnoVrijemeDO.Name = "RadnoVrijemeDO";
+            this.RadnoVrijemeDO.ReadOnly = true;
+            // 
+            // Grad
+            // 
+            this.Grad.DataPropertyName = "Grad";
+            this.Grad.HeaderText = "Grad";
+            this.Grad.Name = "Grad";
+            this.Grad.ReadOnly = true;
+            // 
             // frmTeretane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -367,12 +368,6 @@
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.Button btnSlika;
         private System.Windows.Forms.PictureBox imgPreview;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeretanaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RadnoVrijemeOD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RadnoVrijemeDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grad;
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAdresa;
@@ -385,5 +380,11 @@
         private System.Windows.Forms.ComboBox cmbGradovi;
         private System.Windows.Forms.DateTimePicker timePickerDO;
         private System.Windows.Forms.DateTimePicker timePickerOD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeretanaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RadnoVrijemeOD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RadnoVrijemeDO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grad;
     }
 }

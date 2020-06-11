@@ -26,6 +26,12 @@ namespace eTeretane.Model
             }
         }
 
-
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
     }
+
+
 }
+

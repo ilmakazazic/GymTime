@@ -12,9 +12,9 @@ namespace eTeretane.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TreningDodatniController : BaseCRUDController<TreningDodatni, object, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest>
+    public class TreningDodatniController : BaseCRUDController<TreningDodatni, TreningDodatniSearchRequest, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest>
     {
-        public TreningDodatniController(ICRUDService<TreningDodatni, object, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest> service) : base(service)
+        public TreningDodatniController(ICRUDService<TreningDodatni, TreningDodatniSearchRequest, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest> service) : base(service)
         {
         }
     }

@@ -21,7 +21,7 @@
 
             <Label Text="Odaberi datum:"/>
 
-            <DatePicker Date="{Binding Date}" 
+            <DatePicker Date="{Binding Datum}" 
                         Format="D"
                         Margin="30, 0, 0, 30"
                        />

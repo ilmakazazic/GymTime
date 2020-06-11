@@ -20,8 +20,7 @@ namespace eTeretane.Model
 
         public ICollection<TreneriLicence> TreneriLicence { get; set; }
 
-
-
+   
         public string ImePrezime
         {
             get

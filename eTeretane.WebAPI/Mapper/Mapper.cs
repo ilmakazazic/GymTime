@@ -17,10 +17,12 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<Grad, Model.Grad>().ReverseMap();          
             CreateMap<GradUpsetRequest, Grad>().ReverseMap();
 
-            CreateMap<Teretana, Model.Teretane>().ReverseMap();
+            CreateMap<Teretana, Model.Teretane>()
+                .ForMember(x=>x.Grad, v=>v.MapFrom(l=>l.Grad.Naziv)).ReverseMap();
             CreateMap<TeretanaUpsertRequest, Teretana>();
 
-            CreateMap<Korisnik, Model.Korisnici>(); // means you want to map from User to UserDTO
+            CreateMap<Korisnik, Model.Korisnici>()
+                .ForMember(x=>x.KorisnickoIme, b=>b.MapFrom(l=>l.KorisnickiNalog.Username)); // means you want to map from User to UserDTO
             CreateMap<Korisnik, KorisniciUpsertRequest>().ReverseMap();
 
             CreateMap<KorisnickiNalog, Model.KorisnickiNalog>().ReverseMap(); ; // means you want to map from User to UserDTO
@@ -44,11 +46,24 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<TreningDetalji, Model.TreningDetalji>().ReverseMap();
             CreateMap<TreningDetaljiUpsertRequest, TreningDetalji>().ReverseMap();
 
-            CreateMap<TreningZahtjev, Model.TreningZahtjev>().ReverseMap();
+            CreateMap<TreningZahtjev, Model.TreningZahtjev>()
+                .ForMember(x => x.ClanId, b => b.MapFrom(l => l.ClanId))
+                .ForMember(x => x.ClanIme, b => b.MapFrom(l => l.Clan.Ime + " " + l.Clan.Prezime))
+                .ForMember(x => x.TreningId, b => b.MapFrom(l => l.TreningId))
+                .ForMember(x => x.TreningDatum, b => b.MapFrom(l => l.Trening.DatumOdrzavanja))
+                .ForMember(x => x.TreningPocetak, b => b.MapFrom(l => l.Trening.PocetakTreninga))
+                .ForMember(x => x.TreningKraj, b => b.MapFrom(l => l.Trening.KrajTreninga))
+                .ForMember(x => x.TrenutnoRezervacija, b => b.MapFrom(l => l.Trening.BrojRezervacija))
+                .ForMember(x => x.TeretanaId, b => b.MapFrom(l => l.Trening.TeretanaId))
+                .ForMember(x => x.TeretanaIme, b => b.MapFrom(l => l.Trening.Teretana.Naziv));
             CreateMap<TreningZahtjevUpsertRequest, TreningZahtjev>().ReverseMap();
 
 
-            CreateMap<TreningDodatni, Model.TreningDodatni>().ReverseMap();
+            CreateMap<TreningDodatni, Model.TreningDodatni>()
+                .ForMember(x => x.ClanIme, b => b.MapFrom(l => l.Clan.Ime + " " + l.Clan.Prezime))
+                .ForMember(x => x.TeretanaNaziv, b => b.MapFrom(l => l.Teretana.Naziv))
+                .ForMember(x => x.KorisnikIme, b => b.MapFrom(l => l.Korisnik.Ime + " " + l.Korisnik.Prezime))
+                .ReverseMap();
             CreateMap<TreningDodatniUpsertRequest, TreningDodatni>().ReverseMap();
 
 

@@ -31,7 +31,7 @@ namespace eTeretane.WinUI.Teretane
             }
             else
             {
-                await Loadfrm(null);
+                await Loadfrm();
             }
         }
 

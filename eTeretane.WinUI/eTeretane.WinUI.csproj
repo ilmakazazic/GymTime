@@ -123,6 +123,12 @@
     <Compile Include="Treneri\frmTreneri.Designer.cs">
       <DependentUpon>frmTreneri.cs</DependentUpon>
     </Compile>
+    <Compile Include="TreningZahtjevi\frmTreningZahtjevi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreningZahtjevi\frmTreningZahtjevi.Designer.cs">
+      <DependentUpon>frmTreningZahtjevi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Trening\frmTrening.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     <EmbeddedResource Include="Treneri\frmTreneri.resx">
       <DependentUpon>frmTreneri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TreningZahtjevi\frmTreningZahtjevi.resx">
+      <DependentUpon>frmTreningZahtjevi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Trening\frmTrening.resx">
       <DependentUpon>frmTrening.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,5 +200,6 @@
       <Name>eTeretane.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTeretane.WebAPI.Services
 {
@@ -18,7 +19,7 @@ namespace eTeretane.WebAPI.Services
 
         public override List<Teretane> Get(TeretanaSearchRequest search)
         {
-            var querry = _context.Set<Teretana>().AsQueryable();
+            var querry = _context.Set<Teretana>().Include(k=>k.Grad).AsQueryable();
 
             if(!string.IsNullOrWhiteSpace(search?.Naziv))
             {
