@@ -32,7 +32,6 @@
             this.txtDodajClana = new System.Windows.Forms.Button();
             this.txtDodajTrenera = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.navTeretane = new System.Windows.Forms.Button();
             this.navTermini = new System.Windows.Forms.Button();
@@ -41,7 +40,7 @@
             this.navClanovi = new System.Windows.Forms.Button();
             this.navPocetna = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelChildForm.SuspendLayout();
             this.SuspendLayout();
@@ -73,9 +72,10 @@
             this.txtDodajClana.Name = "txtDodajClana";
             this.txtDodajClana.Size = new System.Drawing.Size(204, 80);
             this.txtDodajClana.TabIndex = 1;
-            this.txtDodajClana.Text = "Dodaj clana";
+            this.txtDodajClana.Text = "Dodaj člana";
             this.txtDodajClana.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.txtDodajClana.UseVisualStyleBackColor = false;
+            this.txtDodajClana.Click += new System.EventHandler(this.txtDodajClana_Click);
             // 
             // txtDodajTrenera
             // 
@@ -91,25 +91,18 @@
             this.txtDodajTrenera.Text = "Dodaj trenera";
             this.txtDodajTrenera.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.txtDodajTrenera.UseVisualStyleBackColor = false;
+            this.txtDodajTrenera.Click += new System.EventHandler(this.txtDodajTrenera_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(420, 57);
+            this.label1.Location = new System.Drawing.Point(418, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(337, 58);
             this.label1.TabIndex = 3;
             this.label1.Text = "DOBRODOŠLI";
-            // 
-            // imgAvatar
-            // 
-            this.imgAvatar.Location = new System.Drawing.Point(534, 171);
-            this.imgAvatar.Name = "imgAvatar";
-            this.imgAvatar.Size = new System.Drawing.Size(100, 100);
-            this.imgAvatar.TabIndex = 4;
-            this.imgAvatar.TabStop = false;
             // 
             // panel1
             // 
@@ -119,7 +112,7 @@
             this.panel1.Controls.Add(this.navTreneri);
             this.panel1.Controls.Add(this.navClanovi);
             this.panel1.Controls.Add(this.navPocetna);
-            this.panel1.Location = new System.Drawing.Point(317, 24);
+            this.panel1.Location = new System.Drawing.Point(269, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(662, 58);
             this.panel1.TabIndex = 5;
@@ -202,6 +195,7 @@
             this.navClanovi.TabIndex = 1;
             this.navClanovi.Text = "Članovi";
             this.navClanovi.UseVisualStyleBackColor = false;
+            this.navClanovi.Click += new System.EventHandler(this.navClanovi_Click);
             // 
             // navPocetna
             // 
@@ -221,7 +215,7 @@
             // 
             // panelChildForm
             // 
-            this.panelChildForm.Controls.Add(this.imgAvatar);
+            this.panelChildForm.Controls.Add(this.label2);
             this.panelChildForm.Controls.Add(this.label1);
             this.panelChildForm.Controls.Add(this.txtDodajTrenera);
             this.panelChildForm.Controls.Add(this.txtDodajClana);
@@ -231,6 +225,17 @@
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(1184, 579);
             this.panelChildForm.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(350, 204);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(481, 33);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Sistem za upravljanje rada teretana";
             // 
             // frmIndex
             // 
@@ -242,7 +247,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmIndex";
             this.Text = "GymTime";
-            ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panelChildForm.ResumeLayout(false);
             this.panelChildForm.PerformLayout();
@@ -256,7 +260,6 @@
         private System.Windows.Forms.Button txtDodajClana;
         private System.Windows.Forms.Button txtDodajTrenera;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox imgAvatar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button navUplate;
         private System.Windows.Forms.Button navTreneri;
@@ -265,6 +268,7 @@
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button navTermini;
         private System.Windows.Forms.Button navTeretane;
+        private System.Windows.Forms.Label label2;
     }
 }
 

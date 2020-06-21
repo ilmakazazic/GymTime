@@ -54,18 +54,15 @@
             this.txtPretrazi = new System.Windows.Forms.TextBox();
             this.clbLicence = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dtpPolaganje = new System.Windows.Forms.DateTimePicker();
-            this.dtpIstek = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.btnUrediLicence = new System.Windows.Forms.Button();
             this.btnPretrazi = new System.Windows.Forms.Button();
             this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KorisnickoIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TreneriLicence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
@@ -106,10 +103,10 @@
             this.dgvKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.KorisnikId,
             this.Ime,
-            this.Prezime,
             this.Email,
             this.Telefon,
-            this.KorisnickoIme});
+            this.KorisnickoIme,
+            this.TreneriLicence});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -287,7 +284,7 @@
             this.clbLicence.FormattingEnabled = true;
             this.clbLicence.Location = new System.Drawing.Point(692, 15);
             this.clbLicence.Name = "clbLicence";
-            this.clbLicence.Size = new System.Drawing.Size(303, 40);
+            this.clbLicence.Size = new System.Drawing.Size(321, 76);
             this.clbLicence.TabIndex = 30;
             // 
             // label9
@@ -298,31 +295,6 @@
             this.label9.Size = new System.Drawing.Size(61, 17);
             this.label9.TabIndex = 31;
             this.label9.Text = "Licence:";
-            // 
-            // dtpPolaganje
-            // 
-            this.dtpPolaganje.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPolaganje.Location = new System.Drawing.Point(693, 69);
-            this.dtpPolaganje.Name = "dtpPolaganje";
-            this.dtpPolaganje.Size = new System.Drawing.Size(151, 23);
-            this.dtpPolaganje.TabIndex = 33;
-            // 
-            // dtpIstek
-            // 
-            this.dtpIstek.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpIstek.Location = new System.Drawing.Point(862, 69);
-            this.dtpIstek.Name = "dtpIstek";
-            this.dtpIstek.Size = new System.Drawing.Size(151, 23);
-            this.dtpIstek.TabIndex = 34;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(496, 74);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(178, 17);
-            this.label10.TabIndex = 35;
-            this.label10.Text = "Datum polaganja - isteka:";
             // 
             // panelChildForm
             // 
@@ -365,17 +337,10 @@
             // 
             // Ime
             // 
-            this.Ime.DataPropertyName = "Ime";
-            this.Ime.HeaderText = "Ime";
+            this.Ime.DataPropertyName = "ImePrezime";
+            this.Ime.HeaderText = "Ime i prezime";
             this.Ime.Name = "Ime";
             this.Ime.ReadOnly = true;
-            // 
-            // Prezime
-            // 
-            this.Prezime.DataPropertyName = "Prezime";
-            this.Prezime.HeaderText = "Prezime";
-            this.Prezime.Name = "Prezime";
-            this.Prezime.ReadOnly = true;
             // 
             // Email
             // 
@@ -398,6 +363,13 @@
             this.KorisnickoIme.Name = "KorisnickoIme";
             this.KorisnickoIme.ReadOnly = true;
             // 
+            // TreneriLicence
+            // 
+            this.TreneriLicence.DataPropertyName = "TreneriLicence";
+            this.TreneriLicence.HeaderText = "Licenca";
+            this.TreneriLicence.Name = "TreneriLicence";
+            this.TreneriLicence.ReadOnly = true;
+            // 
             // frmTreneri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -405,9 +377,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1184, 579);
             this.Controls.Add(this.panelChildForm);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.dtpIstek);
-            this.Controls.Add(this.dtpPolaganje);
             this.Controls.Add(this.btnUrediLicence);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.clbLicence);
@@ -468,17 +437,14 @@
         private System.Windows.Forms.TextBox txtPretrazi;
         private System.Windows.Forms.CheckedListBox clbLicence;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dtpPolaganje;
-        private System.Windows.Forms.DateTimePicker dtpIstek;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button btnUrediLicence;
         private System.Windows.Forms.Button btnPretrazi;
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnickoIme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TreneriLicence;
     }
 }

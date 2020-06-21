@@ -49,7 +49,7 @@ namespace eTeretane.WebAPI.Services
 
         public Korisnici GetById(int id)
         {
-            var entity = _context.Korisnik.Find(id);
+            var entity = _context.Korisnik.Include(c=>c.KorisnickiNalog).Single(i=>i.KorisnikId==id);
             return _mapper.Map<Model.Korisnici>(entity);
         }
 
@@ -69,8 +69,6 @@ namespace eTeretane.WebAPI.Services
             {
                 _context.TrenerLicence.Add(new Database.TrenerLicence()
                 {
-                    DatumIsteka = request.DatumIsteka,
-                    DatumPolaganja = request.DatumPolaganja,
                     KorisnikId = entity.KorisnikId,
                     LicencaId = licenca
                 });

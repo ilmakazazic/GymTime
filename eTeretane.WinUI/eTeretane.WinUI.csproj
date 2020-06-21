@@ -97,6 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIServices.cs" />
+    <Compile Include="Clanovi\frmClanovi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clanovi\frmClanovi.Designer.cs">
+      <DependentUpon>frmClanovi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="Uplate\frmUplate.Designer.cs">
       <DependentUpon>frmUplate.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clanovi\frmClanovi.resx">
+      <DependentUpon>frmClanovi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>

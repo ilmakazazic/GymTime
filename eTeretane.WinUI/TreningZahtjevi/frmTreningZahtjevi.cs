@@ -125,7 +125,7 @@ namespace eTeretane.WinUI.TreningZahtjevi
                     DataGridViewCheckBoxCell cell =
                         row.Cells[dgvTreningZhatjev.ColumnCount - 1] as DataGridViewCheckBoxCell;
 
-                    //We don't want a null exception!
+                    //Provjera da li je upisan broj rezervacija
                     if (cell.Value != null)
                     {
                         if (Convert.ToString(cell.Value) == (string) cell.TrueValue)
@@ -190,7 +190,7 @@ namespace eTeretane.WinUI.TreningZahtjevi
                 DataGridViewCheckBoxCell
                     cell = row.Cells[dgvTreningDodatni.ColumnCount - 1] as DataGridViewCheckBoxCell;
 
-                //We don't want a null exception!
+                //Provjera da li je upisan broj rezervacija
                 if (cell.Value != null)
                 {
                     if (Convert.ToString(cell.Value) == (string) cell.TrueValue)

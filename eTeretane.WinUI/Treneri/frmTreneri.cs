@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eTeretane.Model;
 
 namespace eTeretane.WinUI.Treneri
 {
@@ -30,7 +31,7 @@ namespace eTeretane.WinUI.Treneri
             await Loadfrm();
 
             var ulogeList = await _UlogeService.Get<List<Model.Uloge>>(null);
-            var licenceList = await _LicenceService.Get<List<Model.Licence>>(null);
+            var licenceList = await _LicenceService.Get<List<Model.Licenca>>(null);
 
             clbUloge.DataSource = ulogeList;
             clbUloge.DisplayMember = "Naziv";
@@ -47,7 +48,7 @@ namespace eTeretane.WinUI.Treneri
                 txtPrezime.Text = korisnik.Prezime;
                 txtEmail.Text = korisnik.Email;
                 txtTel.Text = korisnik.Telefon;
-
+                txtKorisnickoIme.Text = korisnik.KorisnickoIme;
             }
         }
 
@@ -65,16 +66,17 @@ namespace eTeretane.WinUI.Treneri
             };
 
             var korisnici = await _services.Get<List<Model.Korisnici>>(search);
-     
+            
             dgvKorisnici.AutoGenerateColumns = false;
             dgvKorisnici.DataSource = korisnici;
+            
 
         }
     
         private async void btnSacuvaj_ClickAsync(object sender, EventArgs e)
         {
             var uloge = clbUloge.CheckedItems.Cast<Model.Uloge>().Select(x => x.UlogaId).ToList();
-            var licence = clbLicence.CheckedItems.Cast<Model.Licence>().Select(x => x.LicencaId).ToList();
+            var licence = clbLicence.CheckedItems.Cast<Model.Licenca>().Select(x => x.LicencaId).ToList();
 
             var request = new KorisniciUpsertRequest()
             {
@@ -87,20 +89,21 @@ namespace eTeretane.WinUI.Treneri
                 Telefon = txtTel.Text,
                 Uloge = uloge,
                 Licence = licence,
-                 DatumPolaganja = dtpPolaganje.Value,
-                 DatumIsteka = dtpIstek.Value,
                 
             };
 
             if (_id.HasValue)
             {
                 await _services.Update<Model.Korisnici>(_id, request);
+                MessageBox.Show("Uspješno ste izmjenili korisnika!");
+
             }
             else
             {
                 await _services.Insert<Model.Korisnici>(request);
+                MessageBox.Show("Uspješno ste dodali korisnika!");
+
             }
-            MessageBox.Show("Operacija uspjesna!");
 
 
         }    

@@ -12,7 +12,6 @@ namespace eTeretane.Model
         public DateTime DatumRegistracije { get; set; }
         public string Email { get; set; }
         public string KorisnickoIme { get; set; }
-        public bool Status { get; set; }
 
         public int KorisnickiNalogId { get; set; }
         public KorisnickiNalog KorisnickiNalog { get; set; }

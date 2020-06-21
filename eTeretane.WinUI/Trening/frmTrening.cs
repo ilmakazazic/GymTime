@@ -117,11 +117,13 @@ namespace eTeretane.WinUI.Trening
             if(_id.HasValue)
             {
                 await _trening.Update<Model.Trening>(_id, request);
+                MessageBox.Show("Uspješno ste izmjenili termin!");
 
             }
             else
             {
                 await _trening.Insert<Model.Trening>(request);
+                MessageBox.Show("Uspješno ste dodali termin!");
 
             }
 

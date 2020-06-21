@@ -41,7 +41,7 @@ namespace eTeretane.WebAPI.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Server=.;Database=160154_eTeretane;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server=.;Database=160154;Trusted_Connection=True;MultipleActiveResultSets=true");
 
             //Za publish
             //optionsBuilder.UseSqlServer("Server=p1851rsdbserver.database.windows.net;Database=p1851RS_db;Trusted_Connection=False;MultipleActiveResultSets=true; User ID=Ilma; Password=123456Merima");

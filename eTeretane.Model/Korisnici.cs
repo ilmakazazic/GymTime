@@ -12,11 +12,9 @@ namespace eTeretane.Model
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
-        public bool? Status { get; set; }
 
         public int KorisnickiNalogId { get; set; }
         public KorisnickiNalog KorisnickiNalog { get; set; }
-
 
         public ICollection<TreneriLicence> TreneriLicence { get; set; }
 
@@ -28,6 +26,26 @@ namespace eTeretane.Model
                 return Ime + " " + Prezime;
             }
         }
+
+
+        public string Licence { get; set; }
+
+
+        //public string Licenca_ispis
+        //{
+        //    get
+        //    {
+        //        string licence ="";
+
+        //            foreach (var l in TreneriLicence)
+        //            {
+        //                licence = licence + l.Licenca.Tip + " ";
+        //            }
+
+        //            return licence;
+
+        //    }
+        //}
 
     }
 }

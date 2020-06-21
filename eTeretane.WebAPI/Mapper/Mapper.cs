@@ -34,13 +34,14 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<Trening, Model.Trening>().ReverseMap();
             CreateMap<TreningUpsertRequest, Trening>();
 
-            CreateMap<Licenca, Model.Licence>().ReverseMap(); 
+            CreateMap<Licenca, Model.Licenca>().ReverseMap(); 
             CreateMap<Licenca, LicencaUpsertRequest>().ReverseMap();
 
             CreateMap<KuponPopust, Model.KuponPopusti>().ReverseMap();
             CreateMap<KuponUpsertRequest, KuponPopust>();
 
-            CreateMap<Clan, Model.Clanovi>(); // means you want to map from User to UserDTO
+            CreateMap<Clan, Model.Clanovi>()
+                .ForMember(x => x.KorisnickoIme, b => b.MapFrom(l => l.KorisnickiNalog.Username));
             CreateMap<Clan, ClanUpsertRequest>().ReverseMap();
 
             CreateMap<TreningDetalji, Model.TreningDetalji>().ReverseMap();

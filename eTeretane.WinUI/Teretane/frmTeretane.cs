@@ -107,14 +107,19 @@ namespace eTeretane.WinUI.Teretane
             request.Adresa = txtAdresa.Text;
             request.PocetakRadnoVrijeme = timePickerOD.Value;
             request.KrajRadnoVrijeme = timePickerDO.Value;
+            
 
             if(_id.HasValue)
             {
                 await _teretane.Update<Model.Teretane>(_id, request);
+                MessageBox.Show("Uspješno ste izmjenili teretanu!");
+
             }
             else
             {
                 await _teretane.Insert<Model.Teretane>(request);
+                MessageBox.Show("Uspješno ste dodali teretanu!");
+
             }
         }
 
@@ -127,7 +132,9 @@ namespace eTeretane.WinUI.Teretane
             {
                 var FileName = openFileDialog1.FileName;
                 var file = File.ReadAllBytes(FileName);
+                txtSlika.Text = file.ToString();
                 request.Slika = file;
+                txtSlika.Text = FileName;
 
                 Image imagePreview = Image.FromFile(FileName);
                 imgPreview.Image = imagePreview;

@@ -10,10 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eTeretane.WebAPI.Controllers
 {
-
-    public class LicenceController : BaseCRUDController<Model.Licence, object, LicencaUpsertRequest, LicencaUpsertRequest>
+   
+    public class LicenceController : BaseCRUDController<Model.Licenca, object, LicencaUpsertRequest, LicencaUpsertRequest>
     {
-        public LicenceController(ICRUDService<Licence, object, LicencaUpsertRequest, LicencaUpsertRequest> service) : base(service)
+        public LicenceController(ICRUDService<Licenca, object, LicencaUpsertRequest, LicencaUpsertRequest> service) : base(service)
         {
         }
     }

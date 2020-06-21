@@ -12,7 +12,7 @@ namespace eTeretane.Model
         public int KorisnikId { get; set; }
         public Korisnici Korisnik { get; set; }
         public int LicencaId { get; set; }
-        public Licence Licenca { get; set; }
+        public Licenca Licenca { get; set; }
 
     }
 

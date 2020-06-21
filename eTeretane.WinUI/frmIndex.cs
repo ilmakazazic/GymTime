@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eTeretane.WinUI.Clanovi;
 
 namespace eTeretane.WinUI
 {
@@ -23,7 +24,7 @@ namespace eTeretane.WinUI
 
         private void btnDodajTermin_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new frmTrening());
         }
 
         private void navTeretane_Click(object sender, EventArgs e)
@@ -56,6 +57,24 @@ namespace eTeretane.WinUI
 
         }
 
+        private void txtDodajTrenera_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmTreneri());
+
+        }
+        private void navClanovi_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmClanovi());
+
+        }
+
+        private void txtDodajClana_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmClanovi());
+
+        }
+
+
         private Form activForm = null;
         private void openChildForm(Form childForm)
         {
@@ -71,6 +90,5 @@ namespace eTeretane.WinUI
             childForm.Show();
         }
 
-    
     }
 }

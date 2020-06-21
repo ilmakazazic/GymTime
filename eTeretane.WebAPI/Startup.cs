@@ -47,7 +47,7 @@ namespace eTeretane.WebAPI
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-            var connection = @"Server=.;Database=160154_eTeretane;Trusted_Connection=True;MultipleActiveResultSets=true";
+            var connection = @"Server=.;Database=160154;Trusted_Connection=True;MultipleActiveResultSets=true";
             services.AddDbContext<eTeretaneContext>(options => options.UseSqlServer(connection));
 
 
@@ -60,7 +60,7 @@ namespace eTeretane.WebAPI
 
             services.AddScoped<ICRUDService<Model.Grad, object, GradUpsetRequest, GradUpsetRequest>, BaseCRUDService<Model.Grad, object, Grad, GradUpsetRequest, GradUpsetRequest>>();
             services.AddScoped<ICRUDService<Model.Teretane, TeretanaSearchRequest, TeretanaUpsertRequest, TeretanaUpsertRequest>, TeretanaService>();
-            services.AddScoped<ICRUDService<Model.Licence, object, LicencaUpsertRequest, LicencaUpsertRequest>, BaseCRUDService<Model.Licence, object, Licenca, LicencaUpsertRequest, LicencaUpsertRequest>>();
+            services.AddScoped<ICRUDService<Model.Licenca, object, LicencaUpsertRequest, LicencaUpsertRequest>, BaseCRUDService<Model.Licenca, object, Licenca, LicencaUpsertRequest, LicencaUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.KuponPopusti, object, KuponUpsertRequest, KuponUpsertRequest>, BaseCRUDService<Model.KuponPopusti, object, KuponPopust, KuponUpsertRequest, KuponUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>, BaseCRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetalji, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.TreningZahtjev, TreningZahtjevSearchRequest, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>, TreningZahtjevService>();

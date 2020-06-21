@@ -27,9 +27,9 @@ namespace eTeretane.WinUI.Licence
 
         private async Task LoadLicence()
         {
-            var licence = await _licenceService.Get<List<Model.Licence>>(null);
+            var licence = await _licenceService.Get<List<Model.Licenca>>(null);
 
-            licence.Insert(0, new Model.Licence());
+            licence.Insert(0, new Model.Licenca());
             cmbLicence.DisplayMember = "Tip";
             cmbLicence.ValueMember = "LicencaId";
             cmbLicence.DataSource = licence;
@@ -47,14 +47,19 @@ namespace eTeretane.WinUI.Licence
             {
                 if(licencaId == 0)
                 {
-                    await _licenceService.Insert<Model.Licence>(request);
+                    await _licenceService.Insert<Model.Licenca>(request);
+                    MessageBox.Show("Uspješno ste dodali novu licencu!");
+
                 }
                 else
                 {
-                    await _licenceService.Update<Model.Licence>(licencaId, request);
+                    await _licenceService.Update<Model.Licenca>(licencaId, request);
+                    MessageBox.Show("Uspješno ste izmjenili postojucu licencu!");
+
                 }
             }
 
+            
            
         }
     }
