@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eTeretane.WebAPI.EF;
 
 namespace eTeretane.WebAPI.Migrations
 {
     [DbContext(typeof(eTeretaneContext))]
-    partial class eTeretaneContextModelSnapshot : ModelSnapshot
+    [Migration("20200621115656_Placanja")]
+    partial class Placanja
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,39 +56,6 @@ namespace eTeretane.WebAPI.Migrations
                     b.HasIndex("KorisnickiNalogId");
 
                     b.ToTable("Clan");
-                });
-
-            modelBuilder.Entity("eTeretane.WebAPI.Database.Clanarina", b =>
-                {
-                    b.Property<int>("ClanarinaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClanId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DatumIsteka")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DatumUplate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TeretanaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TipClanarineId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClanarinaId");
-
-                    b.HasIndex("ClanId");
-
-                    b.HasIndex("TeretanaId");
-
-                    b.HasIndex("TipClanarineId");
-
-                    b.ToTable("Clanarina");
                 });
 
             modelBuilder.Entity("eTeretane.WebAPI.Database.Drzava", b =>
@@ -284,10 +253,10 @@ namespace eTeretane.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BrojKartice")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("BrojKartice")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("ClanarinaId")
+                    b.Property<int>("ClanId")
                         .HasColumnType("int");
 
                     b.Property<int>("ExpMonth")
@@ -299,9 +268,19 @@ namespace eTeretane.WebAPI.Migrations
                     b.Property<int>("SecurityCode")
                         .HasColumnType("int");
 
+                    b.Property<int>("TeretanaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipClanarineId")
+                        .HasColumnType("int");
+
                     b.HasKey("PlacanjeClanarineID");
 
-                    b.HasIndex("ClanarinaId");
+                    b.HasIndex("ClanId");
+
+                    b.HasIndex("TeretanaId");
+
+                    b.HasIndex("TipClanarineId");
 
                     b.ToTable("PlacanjeClanarine");
                 });
@@ -590,27 +569,6 @@ namespace eTeretane.WebAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eTeretane.WebAPI.Database.Clanarina", b =>
-                {
-                    b.HasOne("eTeretane.WebAPI.Database.Clan", "Clan")
-                        .WithMany()
-                        .HasForeignKey("ClanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eTeretane.WebAPI.Database.Teretana", "Teretana")
-                        .WithMany()
-                        .HasForeignKey("TeretanaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eTeretane.WebAPI.Database.TipClanarine", "TipClanarine")
-                        .WithMany()
-                        .HasForeignKey("TipClanarineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("eTeretane.WebAPI.Database.Grad", b =>
                 {
                     b.HasOne("eTeretane.WebAPI.Database.Drzava", "Drzava")
@@ -670,9 +628,21 @@ namespace eTeretane.WebAPI.Migrations
 
             modelBuilder.Entity("eTeretane.WebAPI.Database.PlacanjeClanarine", b =>
                 {
-                    b.HasOne("eTeretane.WebAPI.Database.Clanarina", "Clanarina")
+                    b.HasOne("eTeretane.WebAPI.Database.Clan", "Clan")
                         .WithMany()
-                        .HasForeignKey("ClanarinaId")
+                        .HasForeignKey("ClanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eTeretane.WebAPI.Database.Teretana", "Teretana")
+                        .WithMany()
+                        .HasForeignKey("TeretanaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eTeretane.WebAPI.Database.TipClanarine", "TipClanarine")
+                        .WithMany()
+                        .HasForeignKey("TipClanarineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

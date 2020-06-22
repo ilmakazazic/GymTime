@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace eTeretane.WebAPI.Database
+namespace eTeretane.Model
 {
     public class PlacanjeClanarine
     {
@@ -15,9 +14,6 @@ namespace eTeretane.WebAPI.Database
 
         public int ClanarinaId { get; set; }
         public Clanarina Clanarina { get; set; }
-
- 
-
 
     }
 }

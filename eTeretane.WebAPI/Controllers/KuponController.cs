@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eTeretane.WebAPI.Controllers
 {
-    public class KuponController : BaseCRUDController<Model.KuponPopusti, object, KuponUpsertRequest, KuponUpsertRequest>
+    public class KuponController : BaseCRUDController<Model.KuponPopusti, KuponSearchRequest, KuponUpsertRequest, KuponUpsertRequest>
     {
-        public KuponController(ICRUDService<KuponPopusti, object, KuponUpsertRequest, KuponUpsertRequest> service) : base(service)
+        public KuponController(ICRUDService<KuponPopusti, KuponSearchRequest, KuponUpsertRequest, KuponUpsertRequest> service) : base(service)
         {
         }
     }

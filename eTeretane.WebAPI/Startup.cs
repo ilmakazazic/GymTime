@@ -53,20 +53,25 @@ namespace eTeretane.WebAPI
 
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IKorisnickiNalogService, KorisnickiNalogService>();
-
             services.AddScoped<IClanService, ClanService>();
+            services.AddScoped<IClanarina, ClanarinaService>();
+            services.AddScoped<IPlacanjeClanarine, PlacanjeClanarineService>();
+
 
             services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloga>>();
+            services.AddScoped<IService<Model.TipClanarine, object>, BaseService<Model.TipClanarine, object, TipClanarine>>();
 
+            
             services.AddScoped<ICRUDService<Model.Grad, object, GradUpsetRequest, GradUpsetRequest>, BaseCRUDService<Model.Grad, object, Grad, GradUpsetRequest, GradUpsetRequest>>();
             services.AddScoped<ICRUDService<Model.Teretane, TeretanaSearchRequest, TeretanaUpsertRequest, TeretanaUpsertRequest>, TeretanaService>();
             services.AddScoped<ICRUDService<Model.Licenca, object, LicencaUpsertRequest, LicencaUpsertRequest>, BaseCRUDService<Model.Licenca, object, Licenca, LicencaUpsertRequest, LicencaUpsertRequest>>();
-            services.AddScoped<ICRUDService<Model.KuponPopusti, object, KuponUpsertRequest, KuponUpsertRequest>, BaseCRUDService<Model.KuponPopusti, object, KuponPopust, KuponUpsertRequest, KuponUpsertRequest>>();
+            services.AddScoped<ICRUDService<Model.KuponPopusti, KuponSearchRequest, KuponUpsertRequest, KuponUpsertRequest>, KuponService>();
             services.AddScoped<ICRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>, BaseCRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetalji, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>>();
+
+
             services.AddScoped<ICRUDService<Model.TreningZahtjev, TreningZahtjevSearchRequest, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>, TreningZahtjevService>();
             services.AddScoped<ICRUDService<Model.TreningDodatni, TreningDodatniSearchRequest, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest>, TreningDodatniService>();
 
-            
             services.AddScoped<ICRUDService<Model.Trening, object, TreningUpsertRequest, TreningUpsertRequest>, TreningService>();
             services.AddScoped<ITreningService, TreningService>();
 

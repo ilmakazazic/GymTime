@@ -13,6 +13,8 @@ namespace eTeretane.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TeretanePage : ContentPage
     {
+        private readonly APIServices _PlacanjeclanarineService = new APIServices("PlacanjeClanarine");
+
         private TeretaneViewModel model = null;
         public TeretanePage()
         {
@@ -29,8 +31,22 @@ namespace eTeretane.Mobile.Views
 
         private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as Teretane;
-            await Navigation.PushAsync(new TreningPage(item));
+            var Teretana = e.SelectedItem as Teretane;
+            var clanarina = await _PlacanjeclanarineService.Get<List<PlacanjeClanarine>>(null);
+
+            foreach (var placene in clanarina)
+            {
+                if (placene.Clanarina.DatumIsteka < DateTime.Now)
+                {
+                    if (placene.Clanarina.TeretanaId == Teretana.TeretanaId && placene.Clanarina.ClanId== APIServices.ClanId)
+                    {
+                        await Navigation.PushAsync(new TreningPage(Teretana));
+
+                    }
+                }
+            }
+            await Navigation.PushAsync(new PlacanjePage(Teretana));
         }
+
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace eTeretane.WebAPI.Mapper
 {
@@ -67,6 +68,18 @@ namespace eTeretane.WebAPI.Mapper
                 .ReverseMap();
             CreateMap<TreningDodatniUpsertRequest, TreningDodatni>().ReverseMap();
 
+
+            CreateMap<PlacanjeClanarine, Model.PlacanjeClanarine>();
+            CreateMap<PlacanjeClanarine, PlacanjeClanarineUpsertRequest>().ReverseMap();
+
+            CreateMap<Clanarina, Model.Clanarina>();
+            CreateMap<Clanarina, ClanarinaUpsertRequest>().ReverseMap();
+
+
+
+            CreateMap<TipClanarine, Model.TipClanarine>().ReverseMap();
+
+            
 
         }
 

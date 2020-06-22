@@ -28,6 +28,7 @@ namespace eTeretane.WebAPI.EF
         public DbSet<Licenca> Licenca { get; set; }
         public DbSet<OcjenaTeretane> OcjenaTeretane { get; set; }
         public DbSet<PlacanjeClanarine> PlacanjeClanarine { get; set; }
+        public DbSet<Clanarina> Clanarina { get; set; }
         public DbSet<Teretana> Teretana { get; set; }
         public DbSet<Trening> Trening { get; set; }
         public DbSet<TreningDetalji> TreningDetalji { get; set; }
