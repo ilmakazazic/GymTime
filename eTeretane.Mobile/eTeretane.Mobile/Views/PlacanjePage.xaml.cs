@@ -79,8 +79,8 @@ namespace eTeretane.Mobile.Views
                 var customer = new CustomerCreateOptions
                 {
                     Description = "Naplata za kupca",
-                    Name = clan.ImePrezime,  //ime kupca koji pravi naplatu, ja sam uzela logiranog, nemam pojma, sta god
-                    Source = stripeToken.Id //pošto je ovdje sada isto kao dole source = bla bla
+                    Name = clan.ImePrezime,  
+                    Source = stripeToken.Id 
                 };
                 var customerService = new CustomerService();
 
@@ -88,14 +88,12 @@ namespace eTeretane.Mobile.Views
 
                 var customerResponse = customerService.Create(customer);
 
-                //var M = model.TipClanarine.Cijena * (model.Kupon.Postotak/100);
-                //var amount = model.TipClanarine.Cijena - M;
 
 
                 // `source` is obtained with Stripe.js; see https://stripe.com/docs/payments/accept-a-payment-charges#web-create-token
                 var options = new ChargeCreateOptions
                 {
-                    Amount = (long)model.CijenaSaPopustom * 100, //5000, //ter.clanarinant * 100 zbog feninga ko kod tebe? yes
+                    Amount = (long)model.CijenaSaPopustom * 100, //5000, 
                     Currency = "bam",
                     //Source = stripeToken.Id, ukidas ga odavde, zato što token smiješ koristi samo jednom, ali umjesto toga, ovdje pišep
                     Customer = customerResponse.Id,
@@ -171,14 +169,6 @@ namespace eTeretane.Mobile.Views
 
 
 
-            // DisplayAlert(selectedItem.Cijena.ToString(), "OK", "OK");
-            //samo da vidim hoce li ga nahvatat
-
-
-            //sad imas item clanarinu koja je izabrana i u njoj cijenu // ti poslije radi sa njom sta hoces, ne znam
-            // kako ti ide sva logika oko toga
-            //imas two-way binding izmedju viewmodela i pagea
-            //cim promijenis u viewmodel onu cijenu sa popustom ona se updateuje na pageu 
         }
 
         private async void Kupon_OnSelectedIndexChanged(object sender, EventArgs e)
