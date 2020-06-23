@@ -147,7 +147,7 @@ namespace eTeretane.Mobile.Views
             var selectedItem = item.SelectedItem as TipClanarine;
             if (selectedItem == null)
             {
-                Navigation.PushAsync(new TeretanePage());
+               await Navigation.PushAsync(new TeretanePage());
 
             }
             else

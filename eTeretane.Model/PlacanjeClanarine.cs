@@ -15,5 +15,17 @@ namespace eTeretane.Model
         public int ClanarinaId { get; set; }
         public Clanarina Clanarina { get; set; }
 
+
+
+
+        public string TipClanarineString { get; set; }
+        public string ClanString { get; set; }
+        public string TeretanaString { get; set; }
+        public double cijenaString { get; set; }
+
+
+        public string DatumUplate { get; set; }
+        public string DatumIsteka { get; set; }
+
     }
 }

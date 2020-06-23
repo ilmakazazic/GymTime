@@ -69,10 +69,17 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<TreningDodatniUpsertRequest, TreningDodatni>().ReverseMap();
 
 
-            CreateMap<PlacanjeClanarine, Model.PlacanjeClanarine>();
+            CreateMap<PlacanjeClanarine, Model.PlacanjeClanarine>()
+                .ForMember(x => x.ClanString, v => v.MapFrom(l => l.Clanarina.Clan.Ime + " " + l.Clanarina.Clan.Prezime))
+                .ForMember(x => x.TeretanaString, b => b.MapFrom(l => l.Clanarina.Teretana.Naziv))
+                .ForMember(x => x.TipClanarineString, b => b.MapFrom(l => l.Clanarina.TipClanarine.Tip))
+                .ForMember(x => x.cijenaString, b => b.MapFrom(l => l.Clanarina.TipClanarine.Cijena))
+                .ForMember(x => x.DatumIsteka, b => b.MapFrom(l => l.Clanarina.DatumIsteka.ToString()))
+                .ForMember(x => x.DatumUplate, b => b.MapFrom(l => l.Clanarina.DatumUplate.ToString())).ReverseMap();
+
             CreateMap<PlacanjeClanarine, PlacanjeClanarineUpsertRequest>().ReverseMap();
 
-            CreateMap<Clanarina, Model.Clanarina>();
+            CreateMap<Clanarina, Model.Clanarina>().ReverseMap();
             CreateMap<Clanarina, ClanarinaUpsertRequest>().ReverseMap();
 
 

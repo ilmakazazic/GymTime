@@ -23,18 +23,31 @@ namespace eTeretane.WebAPI.Services
             _mapper = mapper;
             _clanarinaService = clanarina;
         }
-        public List<PlacanjeClanarine> Get(PlacanjeClanarineSearchRequest request)
+        public List<PlacanjeClanarine> Get(PlacanjeClanarineSearchRequest search)
         {
-            var querry = _context.PlacanjeClanarine.AsQueryable();
+            var querry = _context.PlacanjeClanarine.Include(x=>x.Clanarina)
+                .Include(x=>x.Clanarina.Clan)
+                .Include(x => x.Clanarina.Teretana)
+                .Include(x => x.Clanarina.TipClanarine).AsQueryable();
 
-            var list = querry.Include(c => c.Clanarina).ToList();
+            if (search!=null && search.TeretanaId > 0 )
+            {
+                querry = querry.Where(x => x.Clanarina.TeretanaId == search.TeretanaId);
+
+            }
+
+            querry = querry.OrderBy(c => c.Clanarina.DatumIsteka);
+            var list = querry.ToList();
             return _mapper.Map<List<Model.PlacanjeClanarine>>(list);
         }
 
 
         public PlacanjeClanarine GetById(int id)
         {
-            var entity = _context.PlacanjeClanarine.Include(c => c.Clanarina).Single(v => v.PlacanjeClanarineID == id);
+            var entity = _context.PlacanjeClanarine.Include(x => x.Clanarina)
+                .Include(x => x.Clanarina.Clan)
+                .Include(x => x.Clanarina.Teretana)
+                .Include(x => x.Clanarina.TipClanarine).Single(v => v.PlacanjeClanarineID == id);
             return _mapper.Map<Model.PlacanjeClanarine>(entity);
         }
 

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,12 +57,16 @@
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.btnUrediLicence = new System.Windows.Forms.Button();
             this.btnPretrazi = new System.Windows.Forms.Button();
+            this.btnNajposjecenijiTreneri = new System.Windows.Forms.Button();
+            this.poruka = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KorisnickoIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TreneriLicence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPDF = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
@@ -75,30 +79,27 @@
             this.panel1.Controls.Add(this.dgvKorisnici);
             this.panel1.Location = new System.Drawing.Point(12, 259);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 308);
+            this.panel1.Size = new System.Drawing.Size(1160, 241);
             this.panel1.TabIndex = 0;
             // 
             // dgvKorisnici
             // 
             this.dgvKorisnici.AllowUserToAddRows = false;
             this.dgvKorisnici.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            this.dgvKorisnici.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvKorisnici.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
+            this.dgvKorisnici.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvKorisnici.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKorisnici.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKorisnici.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKorisnici.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.KorisnikId,
@@ -107,21 +108,22 @@
             this.Telefon,
             this.KorisnickoIme,
             this.TreneriLicence});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKorisnici.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKorisnici.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvKorisnici.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKorisnici.Location = new System.Drawing.Point(0, 0);
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.ReadOnly = true;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            this.dgvKorisnici.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvKorisnici.Size = new System.Drawing.Size(1160, 308);
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            this.dgvKorisnici.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvKorisnici.Size = new System.Drawing.Size(1160, 241);
             this.dgvKorisnici.TabIndex = 0;
             this.dgvKorisnici.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKorisnici_MouseDoubleClick);
             // 
@@ -328,12 +330,51 @@
             this.btnPretrazi.UseVisualStyleBackColor = false;
             this.btnPretrazi.Click += new System.EventHandler(this.btnPretrazi_Click);
             // 
+            // btnNajposjecenijiTreneri
+            // 
+            this.btnNajposjecenijiTreneri.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNajposjecenijiTreneri.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnNajposjecenijiTreneri.Location = new System.Drawing.Point(239, 517);
+            this.btnNajposjecenijiTreneri.Name = "btnNajposjecenijiTreneri";
+            this.btnNajposjecenijiTreneri.Size = new System.Drawing.Size(78, 32);
+            this.btnNajposjecenijiTreneri.TabIndex = 37;
+            this.btnNajposjecenijiTreneri.Text = "Pretrazi";
+            this.btnNajposjecenijiTreneri.UseVisualStyleBackColor = false;
+            this.btnNajposjecenijiTreneri.Click += new System.EventHandler(this.btnNajposjecenijiTreneri_Click);
+            // 
+            // poruka
+            // 
+            this.poruka.AutoSize = true;
+            this.poruka.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.poruka.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.poruka.Location = new System.Drawing.Point(757, 517);
+            this.poruka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.poruka.Name = "poruka";
+            this.poruka.Padding = new System.Windows.Forms.Padding(8);
+            this.poruka.Size = new System.Drawing.Size(254, 35);
+            this.poruka.TabIndex = 50;
+            this.poruka.Text = "Snimite izvještaj o trenerima:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(71, 517);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(8);
+            this.label10.Size = new System.Drawing.Size(161, 32);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "Najposječeniji treneri:";
+            // 
             // KorisnikId
             // 
             this.KorisnikId.DataPropertyName = "KorisnikId";
             this.KorisnikId.HeaderText = "KorisnikId";
             this.KorisnikId.Name = "KorisnikId";
             this.KorisnikId.ReadOnly = true;
+            this.KorisnikId.Visible = false;
             // 
             // Ime
             // 
@@ -369,6 +410,21 @@
             this.TreneriLicence.HeaderText = "Licenca";
             this.TreneriLicence.Name = "TreneriLicence";
             this.TreneriLicence.ReadOnly = true;
+            this.TreneriLicence.Visible = false;
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPDF.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPDF.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPDF.Location = new System.Drawing.Point(1021, 509);
+            this.btnPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(150, 45);
+            this.btnPDF.TabIndex = 49;
+            this.btnPDF.Text = "Save PDF";
+            this.btnPDF.UseVisualStyleBackColor = false;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
             // frmTreneri
             // 
@@ -376,6 +432,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1184, 579);
+            this.Controls.Add(this.btnPDF);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.poruka);
+            this.Controls.Add(this.btnNajposjecenijiTreneri);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.btnUrediLicence);
             this.Controls.Add(this.label9);
@@ -440,11 +500,15 @@
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button btnUrediLicence;
         private System.Windows.Forms.Button btnPretrazi;
+        private System.Windows.Forms.Button btnNajposjecenijiTreneri;
+        private System.Windows.Forms.Label poruka;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnickoIme;
         private System.Windows.Forms.DataGridViewTextBoxColumn TreneriLicence;
+        private System.Windows.Forms.Button btnPDF;
     }
 }

@@ -21,5 +21,9 @@ namespace eTeretane.Model
         public int TeretanaId { get; set; }
         public Teretane Teretana { get; set; }
 
+        public string TipClanarineString { get; set; }
+        public string ClanString { get; set; }
+        public string TeretanaString { get; set; }
+        public double cijenaString { get; set; }
     }
 }
