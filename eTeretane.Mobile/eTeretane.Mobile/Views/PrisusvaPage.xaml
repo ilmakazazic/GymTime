@@ -4,28 +4,24 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:eTeretane.Mobile.ViewModels;assembly=eTeretane.Mobile"
-             xmlns:converters="clr-namespace:eTeretane.Mobile.Converters;assembly=eTeretane.Mobile"
              mc:Ignorable="d"
-             x:Class="eTeretane.Mobile.Views.TeretanePage">
+             x:Class="eTeretane.Mobile.Views.PrisusvaPage">
+
     <ContentPage.BindingContext>
-        <viewModels:TeretaneViewModel />
+        <viewModels:PrisustvaViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
-    </ContentPage.Resources>
 
-<ContentPage.Content>
+    <ContentPage.Content>
         <StackLayout>
-            <Label Text="Teretane"
+            <Label Text="Prisustva"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" 
                 FontSize="Header"/>
-            <Label Text="Pretraga: " />
-            <Entry Text="{Binding Search}"></Entry>
-            <Button Command="{Binding InitCommand}" Text="Pretraga"></Button>
 
-            <ListView ItemsSource="{Binding TeretaneList}" ItemSelected="ListView_OnItemSelected" >
+
+
+            <ListView ItemsSource="{Binding TreningDetaljiList}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -35,25 +31,19 @@
                                 </StackLayout>-->
 
                                 <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                                    <Label Text="{Binding Naziv}" 
+                                    <Label Text="{Binding DatumOdrzavanja, StringFormat='{0:MMMM dd, yyyy}'}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="20" />
-                                    <Label Text="{Binding Adresa}" 
-                                           d:Text="Item descripton"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="16" />
-
-                                    <Label Text="Radno vrijeme:"
+                                    <Label Text="Termin:"
                                            FontSize="13"></Label>
-                                    <Label Text="{Binding PocetakRadnoVrijeme, StringFormat='{0:HH:mm}'}" 
+                                    <Label Text="{Binding PocetakTreninga, StringFormat='{0:HH:mm}'}" 
                                            d:Text="Item descripton"
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
-                                    <Label Text="{Binding KrajRadnoVrijeme, StringFormat='{0:HH:mm}'}" 
+                                    <Label Text="{Binding KrajTreninga, StringFormat='{0:HH:mm}'}" 
                                            d:Text="Item descripton"
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
@@ -64,7 +54,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
 
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

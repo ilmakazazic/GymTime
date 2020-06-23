@@ -67,32 +67,61 @@ namespace eTeretane.Mobile.ViewModels
 
         async Task Login()
         {
-            IsBusy = true;
-            APIServices.Username = Username;
-            APIServices.Password = Password;
-
-            try
+            if (await Validacija())
             {
-                var allUsers = await _clanServices.Get<List<Model.Clanovi>>(null);
-                foreach (var u in allUsers)
+                await Application.Current.MainPage.DisplayAlert("Greška", "Unesite tražena polja!", "OK");
+            }
+            else
+            {
+                IsBusy = true;
+                APIServices.Username = Username;
+                APIServices.Password = Password;
+
+                try
                 {
-                   
-                    if (u.KorisnickiNalog.Username == Username)
+                    var allUsers = await _clanServices.Get<List<Model.Clanovi>>(null);
+                    foreach (var u in allUsers)
                     {
-                     
+
+                        if (u.KorisnickiNalog.Username == Username)
+                        {
+
                             APIServices.NalogId = u.KorisnickiNalogId;
                             APIServices.ClanId = u.ClanId;
+                        }
                     }
+
+                    Application.Current.MainPage = new MainPage();
+                }
+                catch
+                {
+
+                    await Application.Current.MainPage.DisplayAlert("Greška!", "Niste unijeli tacnu lozinku ili username", "OK");
                 }
 
-                Application.Current.MainPage = new MainPage();
+
             }
-            catch 
+
+        }
+
+        public async Task<bool> Validacija()
+        {
+            if (Username == string.Empty)
             {
-
-               await Application.Current.MainPage.DisplayAlert("Greška!", "Niste unijeli tacnu lozinku ili username", "OK");
+                UserError = "Unesite korisnicko ime!";
+                VisibleKors = true;
+                VisiblePass = false;
+                return true;
+            }
+            else if (Password == string.Empty)
+            {
+                PassError = "Unesite password!";
+                VisiblePass = true;
+                VisibleKors = false;
+                return true;
             }
 
+            return false;
         }
     }
 }

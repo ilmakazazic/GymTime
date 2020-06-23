@@ -8,7 +8,8 @@ namespace eTeretane.Mobile.Models
     {
         Browse,
         About,
-        Teretane
+        Teretane,
+        Prisustva
     }
     public class HomeMenuItem
     {

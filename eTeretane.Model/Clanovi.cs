@@ -15,7 +15,7 @@ namespace eTeretane.Model
 
         public int KorisnickiNalogId { get; set; }
         public KorisnickiNalog KorisnickiNalog { get; set; }
-
+        public int GradId { get; set; }
 
         public string ImePrezime
         {

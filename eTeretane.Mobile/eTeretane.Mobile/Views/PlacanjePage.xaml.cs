@@ -34,6 +34,19 @@ namespace eTeretane.Mobile.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            var list = await _PlacanjeclanarineService.Get<List<PlacanjeClanarine>>(null);
+            foreach (var placene in list)
+            {
+                if (placene.Clanarina.ClanId == APIServices.ClanId && model.Teretana.TeretanaId== placene.Clanarina.TeretanaId)
+                {
+                    if (placene.Clanarina.DatumIsteka > DateTime.Now)
+                    {
+                        await Navigation.PushAsync(new TreningPage(model.Teretana));
+                        return;
+                    }
+                    
+                }
+            }
             await model.PopuniTipoveClanarina();
             await model.PopuniKupone();
         }

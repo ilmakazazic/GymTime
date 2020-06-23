@@ -31,6 +31,8 @@ namespace eTeretane.Mobile.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+
             await model.Init();
         }
 

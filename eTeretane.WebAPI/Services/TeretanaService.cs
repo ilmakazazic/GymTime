@@ -25,7 +25,14 @@ namespace eTeretane.WebAPI.Services
             {
                 querry = querry.Where(x => x.Naziv.StartsWith(search.Naziv));
             }
-            querry = querry.OrderBy(c => c.Naziv);
+
+            if (search!=null && search.GradId != 0)
+            {
+                //sortiranje na osnovu grada clanova
+                querry = querry.OrderByDescending(m => m.GradId == search.GradId ? 0 : 1);
+            }
+
+
             var list = querry.ToList();
             return _mapper.Map<List<Model.Teretane>>(list);
         }

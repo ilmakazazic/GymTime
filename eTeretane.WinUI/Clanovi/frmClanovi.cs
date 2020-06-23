@@ -146,7 +146,7 @@ namespace eTeretane.WinUI.Clanovi
                         brojac++;
                     }
                 }
-                lista.Add(new IzvjestajNajlojalnijiClanovi() { Ime = clan.Ime, Email = clan.Email, KorisnickoIme = clan.KorisnickoIme, Prezime = clan.Prezime});
+                lista.Add(new IzvjestajNajlojalnijiClanovi() { Ime = clan.Ime, Email = clan.Email, KorisnickoIme = clan.KorisnickoIme, Prezime = clan.Prezime, brojRezervacija = brojac});
             }
 
             lista.OrderBy(c => c.brojRezervacija);

@@ -14,6 +14,7 @@ namespace eTeretane.Mobile.ViewModels
     {
 
         private readonly APIServices _teretanaServices = new APIServices("Teretana");
+        private readonly APIServices _clanService = new APIServices("Clan");
 
         public TeretaneViewModel()
         {
@@ -33,6 +34,8 @@ namespace eTeretane.Mobile.ViewModels
         {
             TeretanaSearchRequest search = new TeretanaSearchRequest();
             IEnumerable<Teretane> list;
+            var clan = await _clanService.GetById<Clanovi>(APIServices.ClanId);
+            search.GradId = clan.GradId;
             if (Search != String.Empty)
             {
                 search.Naziv = Search;
@@ -40,7 +43,7 @@ namespace eTeretane.Mobile.ViewModels
             }
             else
             {
-                list = await _teretanaServices.Get<IEnumerable<Teretane>>(null);
+                list = await _teretanaServices.Get<IEnumerable<Teretane>>(search);
 
             }
             TeretaneList.Clear();

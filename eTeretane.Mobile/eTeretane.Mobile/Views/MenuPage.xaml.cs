@@ -22,8 +22,8 @@ namespace eTeretane.Mobile.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.Teretane, Title="Teretane" }
-
+                new HomeMenuItem {Id = MenuItemType.Teretane, Title="Teretane" },
+                new HomeMenuItem {Id = MenuItemType.Prisustva, Title="Prisustva" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

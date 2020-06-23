@@ -42,6 +42,24 @@ namespace eTeretane.WebAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme()
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic",
+                    Description = "Input your username and password to access this API",
+                    In = ParameterLocation.Header,
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "basicAuth" }
+                        }, new List<string>() }
+                });
             });
 
             services.AddAuthentication("BasicAuthentication")
@@ -66,7 +84,7 @@ namespace eTeretane.WebAPI
             services.AddScoped<ICRUDService<Model.Teretane, TeretanaSearchRequest, TeretanaUpsertRequest, TeretanaUpsertRequest>, TeretanaService>();
             services.AddScoped<ICRUDService<Model.Licenca, object, LicencaUpsertRequest, LicencaUpsertRequest>, BaseCRUDService<Model.Licenca, object, Licenca, LicencaUpsertRequest, LicencaUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.KuponPopusti, KuponSearchRequest, KuponUpsertRequest, KuponUpsertRequest>, KuponService>();
-            services.AddScoped<ICRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>, BaseCRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetalji, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>>();
+            services.AddScoped<ICRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>, TreningDetaljiService>();
 
 
             services.AddScoped<ICRUDService<Model.TreningZahtjev, TreningZahtjevSearchRequest, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>, TreningZahtjevService>();
@@ -89,6 +107,7 @@ namespace eTeretane.WebAPI
 
             app.UseRouting();
 
+            app.UseAuthorization();
             app.UseAuthorization();
 
             app.UseSwagger();

@@ -92,11 +92,12 @@ namespace eTeretane.WinUI.Uplate
             if(_id.HasValue)
             {
                 await _kuponService.Update<Model.KuponPopusti>(_id, saveRequst);
+                MessageBox.Show("Uspješno ste dodali kupon!");
             }
             else
             {
                 await _kuponService.Insert<Model.KuponPopusti>(saveRequst);
-
+                MessageBox.Show("Uspješno ste izmjenili kupon!");
             }
 
         }

@@ -34,10 +34,7 @@ namespace eTeretane.Mobile.Views
         {
             if (await model.Validacija())
             {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await DisplayAlert("Greška", "Unesite tražena polja!", "OK");
-                });
+                await DisplayAlert("Greška", "Unesite tražena polja!", "OK");
             }
             else
             {

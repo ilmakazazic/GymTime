@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using eTeretane.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace eTeretane.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class PrisusvaPage : ContentPage
     {
-
-        public LoginPage()
+        private PrisustvaViewModel model = null;
+        public PrisusvaPage()
         {
             InitializeComponent();
+            BindingContext = model = new PrisustvaViewModel();
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+        protected async override void OnAppearing()
         {
-
-            Application.Current.MainPage = new RegistrationPage();
-
+            base.OnAppearing();
+            await model.Init();
         }
     }
 }
