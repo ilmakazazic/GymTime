@@ -38,6 +38,7 @@
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemTextStyle}"
                                            FontSize="16" />
+                                    <Label Text="Broj rezervacija: " FontSize="13" />
                                     <Label Text="{Binding  BrojRezervacija}" 
                                            d:Text="Item descripton"
                                            LineBreakMode="NoWrap"
