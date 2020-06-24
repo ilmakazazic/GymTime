@@ -29,7 +29,7 @@ namespace eTeretane.WinUI
                 url += "?";
                 url += await search.ToQueryString();
             }
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
 
@@ -38,7 +38,7 @@ namespace eTeretane.WinUI
             var url = $"{Properties.Settings.Default.API}/{_route}/{id}";
 
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
 
@@ -47,7 +47,7 @@ namespace eTeretane.WinUI
             var url = $"{Properties.Settings.Default.API}/{_route}";
 
 
-            return await url.PostJsonAsync(request).ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
 
         }
 
@@ -56,7 +56,7 @@ namespace eTeretane.WinUI
             var url = $"{Properties.Settings.Default.API}/{_route}/{id}";
 
 
-            return await url.PutJsonAsync(request).ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
         }
 
@@ -65,7 +65,7 @@ namespace eTeretane.WinUI
             var url = $"{Properties.Settings.Default.API}/{_route}/GetByDateGym/{date}/{id}/{id2}";
 
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
 

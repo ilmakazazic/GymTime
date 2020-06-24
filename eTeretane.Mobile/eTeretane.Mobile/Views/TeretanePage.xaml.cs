@@ -41,6 +41,7 @@ namespace eTeretane.Mobile.Views
                     if (placene.Clanarina.TeretanaId == Teretana.TeretanaId && placene.Clanarina.ClanId== APIServices.ClanId)
                     {
                         await Navigation.PushAsync(new TreningPage(Teretana));
+                        return;
 
                     }
                 }

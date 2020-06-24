@@ -25,39 +25,39 @@
             <Entry Text="{Binding Search}"></Entry>
             <Button Command="{Binding InitCommand}" Text="Pretraga"></Button>
 
+
             <ListView ItemsSource="{Binding TeretaneList}" ItemSelected="ListView_OnItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                <!--<StackLayout>
-                                    <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
-                                </StackLayout>-->
+                                <StackLayout>
+                                    <Image Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
 
-                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                                     <Label Text="{Binding Naziv}" 
-                                d:Text="{Binding .}"
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="20" />
+                                            d:Text="{Binding .}"
+                                            LineBreakMode="NoWrap" 
+                                            Style="{DynamicResource ListItemTextStyle}" 
+                                            FontSize="20" />
                                     <Label Text="{Binding Adresa}" 
-                                           d:Text="Item descripton"
-                                           LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="16" />
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
 
                                     <Label Text="Radno vrijeme:"
                                            FontSize="13"></Label>
                                     <Label Text="{Binding PocetakRadnoVrijeme, StringFormat='{0:HH:mm}'}" 
-                                           d:Text="Item descripton"
-                                           LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
+                                        <Label Text="-"  FontSize="13" />
+
                                     <Label Text="{Binding KrajRadnoVrijeme, StringFormat='{0:HH:mm}'}" 
-                                           d:Text="Item descripton"
-                                           LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

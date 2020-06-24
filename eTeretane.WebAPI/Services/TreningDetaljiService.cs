@@ -20,9 +20,9 @@ namespace eTeretane.WebAPI.Services
         {
             var querry = _context.Set<Database.TreningDetalji>().AsQueryable();
 
-            if (search != null && search.teretanaId!=0)
+            if (search != null && search.treningId!=0)
             {
-               querry = querry.Where(c => c.TreningId == search.teretanaId);
+               querry = querry.Where(c => c.TreningId == search.treningId);
 
             }
 

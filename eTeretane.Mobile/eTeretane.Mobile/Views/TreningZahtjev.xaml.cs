@@ -42,38 +42,47 @@ namespace eTeretane.Mobile.Views
 
             try
             {
-                var postoji = false;
-                foreach (var trening in TreningList)
+                if (model.Korisnik == null)
                 {
-                    if (trening.DatumOdrzavanja.Date.Equals(model.Datum.Date)
-                        && trening.PocetakTreninga.Hour.Equals(model.PocetakTime.Hours)
-                        && trening.PocetakTreninga.Minute.Equals(model.PocetakTime.Minutes)
-                        && trening.KrajTreninga.Hour.Equals(model.KrajTime.Hours)
-                        && trening.KrajTreninga.Minute.Equals(model.KrajTime.Minutes))
+                    await DisplayAlert("Greška", "Niste unjeli trenera!", "OK");
 
-                    {
-
-                        await DisplayAlert("Termin postoji", "Provjerite da li termin vec ima u ponudi", "OK");
-                        postoji = true;
-                    }
-                    
                 }
-                if (postoji == false)
+                else
                 {
-                    var pocetak = model.PocetakTime.ToString();
-                    var kraj = model.KrajTime.ToString();
-                    TreningDodatniUpsertRequest input = new TreningDodatniUpsertRequest()
+                    var postoji = false;
+                    foreach (var trening in TreningList)
                     {
-                        ClanId = APIServices.ClanId,
-                        KorisnikId = model.Korisnik.KorisnikId,
-                        TeretanaId = model.Teretana.TeretanaId,
-                        DatumOdrzavanja = model.Datum.Date,
-                        PocetakTreninga = DateTime.ParseExact(pocetak, "HH:mm:ss", null),
-                        KrajTreninga = DateTime.ParseExact(kraj, "HH:mm:ss", null),
-                        Prihvacen = false
-                    };
-                    await _treningDodatniServices.Insert<TreningDodatni>(input);
-                    await DisplayAlert("Potvrda", "Poslali ste zahtjev za dodatni termin", "OK");
+                        if (trening.DatumOdrzavanja.Date.Equals(model.Datum.Date)
+                            && trening.PocetakTreninga.Hour.Equals(model.PocetakTime.Hours)
+                            && trening.PocetakTreninga.Minute.Equals(model.PocetakTime.Minutes)
+                            && trening.KrajTreninga.Hour.Equals(model.KrajTime.Hours)
+                            && trening.KrajTreninga.Minute.Equals(model.KrajTime.Minutes))
+
+                        {
+
+                            await DisplayAlert("Termin postoji", "Provjerite da li termin vec ima u ponudi", "OK");
+                            postoji = true;
+                        }
+
+                    }
+                    if (postoji == false)
+                    {
+                        var pocetak = model.PocetakTime.ToString();
+                        var kraj = model.KrajTime.ToString();
+                        TreningDodatniUpsertRequest input = new TreningDodatniUpsertRequest()
+                        {
+                            ClanId = APIServices.ClanId,
+                            KorisnikId = model.Korisnik.KorisnikId,
+                            TeretanaId = model.Teretana.TeretanaId,
+                            DatumOdrzavanja = model.Datum.Date,
+                            PocetakTreninga = DateTime.ParseExact(pocetak, "HH:mm:ss", null),
+                            KrajTreninga = DateTime.ParseExact(kraj, "HH:mm:ss", null),
+                            Prihvacen = false
+                        };
+                        await _treningDodatniServices.Insert<TreningDodatni>(input);
+                        await DisplayAlert("Potvrda", "Poslali ste zahtjev za dodatni termin", "OK");
+                    }
+
                 }
 
             }

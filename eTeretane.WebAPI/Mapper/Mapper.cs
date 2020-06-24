@@ -32,7 +32,11 @@ namespace eTeretane.WebAPI.Mapper
 
             CreateMap<Uloga, Model.Uloge>().ReverseMap();
 
-            CreateMap<Trening, Model.Trening>().ReverseMap();
+            CreateMap<Trening, Model.Trening>()
+                .ForMember(x => x.Korisnik, b => b.MapFrom(l => l.Korisnik)) // means you want to map from User to UserDTO
+                .ForMember(x => x.TrenerString, b => b.MapFrom(l => l.Korisnik.Ime + " " + l.Korisnik.Prezime))
+                .ForMember(x => x.TeretanaString, b => b.MapFrom(l => l.Teretana.Naziv)) // means you want to map from User to UserDTO
+                .ReverseMap();
             CreateMap<TreningUpsertRequest, Trening>();
 
             CreateMap<Licenca, Model.Licenca>().ReverseMap(); 
@@ -42,7 +46,9 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<KuponUpsertRequest, KuponPopust>();
 
             CreateMap<Clan, Model.Clanovi>()
-                .ForMember(x => x.KorisnickoIme, b => b.MapFrom(l => l.KorisnickiNalog.Username));
+                .ForMember(x => x.KorisnickoIme, b => b.MapFrom(l => l.KorisnickiNalog.Username))
+                .ForMember(x => x.KorisnickiNalog, b => b.MapFrom(l => l.KorisnickiNalog));
+
             CreateMap<Clan, ClanUpsertRequest>().ReverseMap();
 
             CreateMap<TreningDetalji, Model.TreningDetalji>().ReverseMap();

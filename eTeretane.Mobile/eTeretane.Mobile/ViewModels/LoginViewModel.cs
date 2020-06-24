@@ -34,7 +34,7 @@ namespace eTeretane.Mobile.ViewModels
         public string Username
         {
             get { return _username; }
-            set { SetProperty(ref _username, value); }
+            set{ SetProperty(ref _username, value); }
         }
         public string Password
         {
@@ -91,7 +91,16 @@ namespace eTeretane.Mobile.ViewModels
                         }
                     }
 
-                    Application.Current.MainPage = new MainPage();
+                    if (APIServices.ClanId == 0)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Greška!", "Niste unijeli tacnu lozinku ili username", "OK");
+
+                    }
+                    else
+                    {
+                        Application.Current.MainPage = new MainPage();
+
+                    }
                 }
                 catch
                 {

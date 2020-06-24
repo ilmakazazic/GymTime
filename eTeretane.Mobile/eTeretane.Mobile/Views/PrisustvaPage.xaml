@@ -36,18 +36,29 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="20" />
-                                    <Label Text="Termin:"
-                                           FontSize="13"></Label>
-                                    <Label Text="{Binding PocetakTreninga, StringFormat='{0:HH:mm}'}" 
-                                           d:Text="Item descripton"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="13" />
-                                    <Label Text="{Binding KrajTreninga, StringFormat='{0:HH:mm}'}" 
-                                           d:Text="Item descripton"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="13" />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                                        <Label Text="{Binding PocetakTreninga, StringFormat='{0:HH:mm}'}"  
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="16" />
+                                        <Label Text="-" 
+                                               Style="{DynamicResource ListItemTextStyle}"
+                                               FontSize="16" />
+
+                                        <Label Text="{Binding KrajTreninga, StringFormat='{0:HH:mm}'}" 
+                                               Style="{DynamicResource ListItemTextStyle}"
+                                               FontSize="16" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                                        <Label Text="Teretana:"  
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="16" />
+                                        <Label Text="{Binding TeretanaString}" 
+                                               Style="{DynamicResource ListItemTextStyle}"
+                                               FontSize="16" />
+                                    </StackLayout>
+
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

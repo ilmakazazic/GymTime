@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eTeretane.WinUI.Helper;
+using System.Configuration;
 
 namespace eTeretane.WinUI.Teretane
 {
@@ -139,8 +141,31 @@ namespace eTeretane.WinUI.Teretane
                 Image imagePreview = Image.FromFile(FileName);
                 imgPreview.Image = imagePreview;
 
-                //Image thumb = imagePreview.GetThumbnailImage(150, 150, () => false, IntPtr.Zero);
-                //thumb.Save(Path.ChangeExtension(FileName, "thumb"));
+
+                int resizedImgWidth = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImgWidth"]);
+                int resizedImgHeight = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImgHeight"]);
+                int croppedImgWidth = Convert.ToInt32(ConfigurationManager.AppSettings["croppedImgWidth"]);
+                int croppedImgHeight = Convert.ToInt32(ConfigurationManager.AppSettings["croppedImgHeight"]);
+
+                if (imagePreview.Width > resizedImgWidth)
+                {
+                    Image resizedImg = UIHelper.ResizeImage(imagePreview, new Size(resizedImgWidth, resizedImgHeight));
+                    Image croppedImg = resizedImg;
+
+                    if (resizedImg.Width >= croppedImgWidth && resizedImg.Height >= croppedImgHeight)
+                    {
+                        int croppedXPosition = (resizedImg.Width - croppedImgWidth) / 2;
+                        int croppedYPosition = (resizedImg.Height - croppedImgHeight) / 2;
+
+
+                        croppedImg = UIHelper.CropImage(resizedImg, new Rectangle(croppedXPosition, croppedYPosition, croppedImgWidth, croppedImgHeight));
+
+
+                        ImageConverter imgCon = new ImageConverter();
+                        request.SlikaThumb = (byte[])imgCon.ConvertTo(croppedImg, typeof(byte[]));
+
+                    }
+                }
 
             }
         }

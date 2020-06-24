@@ -54,7 +54,7 @@ namespace eTeretane.Mobile.Views
             var item = e.SelectedItem as Trening;
             TreningDetaljiSearchRequest search = new TreningDetaljiSearchRequest()
             {
-                teretanaId = item.TeretanaId
+                treningId = item.TreningId
             };
 
             var treninzi  = await _treningDetaljiServices.Get<List<TreningDetalji>>(search);

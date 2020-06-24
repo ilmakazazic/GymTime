@@ -11,9 +11,19 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+
         <ContentView>
+           
             <StackLayout VerticalOptions="FillAndExpand">
-                <Grid HorizontalOptions="Center"  Padding="20, 200, 20, 0" ColumnSpacing="20">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Potrebno je uplatiti članarinu"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"
+                           Padding="20, 20, 20, 0"
+                           FontSize="20" FontAttributes="Bold"/>
+                </StackLayout>
+
+                <Grid HorizontalOptions="Center"  Padding="20, 30, 20, 0" ColumnSpacing="20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -41,7 +51,11 @@
                                     SelectedIndexChanged="Kupon_OnSelectedIndexChanged"
                             />
 
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
                             <Label Text="{Binding CijenaSaPopustom}"></Label>
+                            <Label Text="KM" />
+                            </StackLayout>
                             </StackLayout>
                             <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
                             <Entry x:Name="CreditCardNumber" Placeholder="Enter your credit card number"></Entry>
@@ -59,8 +73,13 @@
                                 <Entry x:Name="CreditCardSecurityCode" Placeholder="CVV"></Entry>
                             </StackLayout>
                 </Grid>
-                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End">
-                            <Button Clicked="Plati_OnClicked"  BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="DeepSkyBlue" Text="Plati " />
+                <StackLayout HorizontalOptions="FillAndExpand"  Padding="20, 20, 20, 0" VerticalOptions="End">
+                            <Button Clicked="Plati_OnClicked"  
+                                    BorderColor="DeepSkyBlue" 
+                                    BackgroundColor="Transparent" 
+                                    TextColor="DeepSkyBlue"
+                                    FontSize="16"
+                                    Text="Plati " />
                         </StackLayout>
 
             </StackLayout>

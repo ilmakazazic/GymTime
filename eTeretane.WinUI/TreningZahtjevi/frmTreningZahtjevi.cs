@@ -51,6 +51,7 @@ namespace eTeretane.WinUI.TreningZahtjevi
             var zahtjevi = await _treningZahtjevServices.Get<List<Model.TreningZahtjev>>(odobren);
             var dodatni = await _treningDodatniServices.Get<List<Model.TreningDodatni>>(prihvacen);
 
+
             dgvTreningZhatjev.Columns[4].DefaultCellStyle.Format = "dd.MM.yyyy";
             dgvTreningZhatjev.Columns[2].DefaultCellStyle.Format = "HH:mm";
             dgvTreningZhatjev.Columns[3].DefaultCellStyle.Format = "HH:mm";

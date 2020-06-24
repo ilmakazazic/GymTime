@@ -10,27 +10,50 @@
         <viewModels:TreningZahtjevViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label Text="Zahtjev za trening" Margin="20" HorizontalOptions="Center"></Label>
-            <Label Text="Ime"></Label>
+        <StackLayout Padding="5">
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Zahtjev za trening"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       Padding="20, 20, 20, 0"
+                       FontSize="20" FontAttributes="Bold"/>
+            </StackLayout>
 
-            <Picker Title="Odaberi trenera: " ItemsSource="{Binding KorisniciList}"
+            <Label Text="Odaberi trenera:"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="20, 20, 20, 0"
+                   FontSize="16" />
+
+            <Picker ItemsSource="{Binding KorisniciList}"
                     ItemDisplayBinding="{Binding ImePrezime}"
                     SelectedItem="{Binding Korisnik}"
             />
 
-            <Label Text="Odaberi datum:"/>
+            <Label Text="Odaberi datum:"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="20, 20, 20, 0"
+                   FontSize="16" />
 
             <DatePicker Date="{Binding Datum}" 
                         Format="D"
                         Margin="30, 0, 0, 30"
                        />
-            <Label Text="Odaberi vrijeme pocetka treninga:"/>
+            <Label Text="Odaberi vrijeme početka treninga:"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="20, 20, 20, 0"
+                   FontSize="16" />
             <TimePicker Time="{Binding PocetakTime}" 
-                         Format="t"
-                         Margin="30, 0, 0, 30"
-             />
-            <Label Text="Odaberi vrijeme kraja treninga:"/>
+                        Format="t"
+                        Margin="30, 0, 0, 30"
+            />
+            <Label Text="Odaberi vrijeme kraja treninga:"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="20, 20, 20, 0"
+                   FontSize="16" />
             <TimePicker Time="{Binding KrajTime}" 
                         Format="t"
                         Margin="30, 0, 0, 30"
