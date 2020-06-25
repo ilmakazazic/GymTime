@@ -42,6 +42,10 @@ namespace eTeretane.Mobile.Views
                     case (int)MenuItemType.Prisustva:
                         MenuPages.Add(id, new NavigationPage(new PrisusvaPage()));
                         break;
+                    case (int)MenuItemType.Kuponi:
+                        MenuPages.Add(id, new NavigationPage(new KuponPage()));
+                        break;
+
 
 
                 }

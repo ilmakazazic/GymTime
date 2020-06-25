@@ -9,7 +9,8 @@ namespace eTeretane.Mobile.Models
         Browse,
         About,
         Teretane,
-        Prisustva
+        Prisustva,
+        Kuponi
     }
     public class HomeMenuItem
     {

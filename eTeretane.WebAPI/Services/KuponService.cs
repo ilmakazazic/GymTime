@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTeretane.WebAPI.Services
 {
@@ -17,7 +18,7 @@ namespace eTeretane.WebAPI.Services
 
         public override List<Model.KuponPopusti> Get(KuponSearchRequest search)
         {
-            var querry = _context.Set<KuponPopust>().AsQueryable();
+            var querry = _context.Set<KuponPopust>().Include(c=>c.Teretana).AsQueryable();
 
             if (search.TeretanaId > 0)
             {

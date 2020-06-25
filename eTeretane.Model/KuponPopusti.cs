@@ -14,6 +14,8 @@ namespace eTeretane.Model
         public int Broj_Koristenja { get; set; }
         public bool Aktivan { get; set; }
         public int TeretanaId { get; set; }
+        public string TeretanaString { get; set; }
+
 
     }
 }

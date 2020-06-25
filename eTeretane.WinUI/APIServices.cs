@@ -12,7 +12,7 @@ namespace eTeretane.WinUI
     {
         public static string Username { get; set; }
         public static string Password { get; set; }
-
+        public static int KorisnikId { get; set; }
 
         private string _route;
         public APIServices(string route)

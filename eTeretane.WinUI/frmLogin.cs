@@ -27,11 +27,28 @@ namespace eTeretane.WinUI
                 APIServices.Username = txtUsername.Text;
                 APIServices.Password = txtPass.Text;
 
-                await _service.Get<List<Korisnici>>(null);
+                var list = await _service.Get<List<Korisnici>>(null);
+                foreach (var korisnici in list)
+                {
+                    if (korisnici.KorisnickiNalog.Username == APIServices.Username)
+                    {
+                        APIServices.KorisnikId = korisnici.KorisnikId;
+                    }
+                }
 
-                this.Hide();
-                frmIndex frm = new frmIndex();
-                frm.Show();
+                if (APIServices.KorisnikId == 0)
+                {
+                    MessageBox.Show("Pogrešan username ili password!", "Greška!", MessageBoxButtons.OK);
+
+                }
+                else
+                {
+                    this.Hide();
+                    frmIndex frm = new frmIndex();
+                    frm.Show();
+
+                }
+
             }
             catch (Exception ex)
             {

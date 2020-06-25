@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:eTeretane.Mobile.ViewModels;assembly=eTeretane.Mobile"
+             mc:Ignorable="d"
+             x:Class="eTeretane.Mobile.Views.KuponPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:KuponViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Ispis kupona po teretani"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       Padding="20, 20, 20, 0"
+                       FontSize="20" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Padding="5">
+                <Label Text="Odaberi datum od:"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       Padding="20, 20, 20, 0"
+                       FontSize="16" />
+
+                <DatePicker Date="{Binding DatumOD}" 
+                            Format="D"
+                            Margin="30, 0, 0, 30"
+                />
+            </StackLayout>
+
+            <StackLayout Padding="5">
+                <Label Text="Odaberi datum do:"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       Padding="20, 20, 20, 0"
+                       FontSize="16" />
+
+                <DatePicker Date="{Binding DatumDO}" 
+                            Format="D"
+                            Margin="30, 0, 0, 30"
+                />
+            </StackLayout>
+
+            <Button Clicked="Kuponi_OnClicked"  BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="DeepSkyBlue" Text="Izlistaj kupone " />
+
+            <ListView ItemsSource="{Binding NovaLista}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                        <Label Text="{Binding KuponKod}" 
+                                               d:Text="{Binding .}"
+                                               LineBreakMode="NoWrap" 
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               FontSize="16" />
+                                        <Label Text="{Binding TeretanaString }" 
+                                               Style="{DynamicResource ListItemDetailTextStyle}"
+                                               FontSize="16" />
+                                        <Label Text="Postotak:"
+                                               Style="{DynamicResource ListItemDetailTextStyle}"
+                                               FontSize="13"></Label>
+                                        <Label Text="{Binding Postotak}" 
+                                               Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                        <Label Text="%"  
+                                               Style="{DynamicResource ListItemDetailTextStyle}"
+                                               FontSize="13" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="End">
+            <Label Text="{Binding Ukupno}" 
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+            <Label Text="%"  
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="13" />
+        </StackLayout>
+
+        </StackLayout>
+   
+
+    </ContentPage.Content>
+</ContentPage>

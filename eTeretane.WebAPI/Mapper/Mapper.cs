@@ -42,7 +42,9 @@ namespace eTeretane.WebAPI.Mapper
             CreateMap<Licenca, Model.Licenca>().ReverseMap(); 
             CreateMap<Licenca, LicencaUpsertRequest>().ReverseMap();
 
-            CreateMap<KuponPopust, Model.KuponPopusti>().ReverseMap();
+            CreateMap<KuponPopust, Model.KuponPopusti>()
+                .ForMember(x => x.TeretanaString, b => b.MapFrom(l => l.Teretana.Naziv)) // means you want to map from User to UserDTO
+                .ReverseMap();
             CreateMap<KuponUpsertRequest, KuponPopust>();
 
             CreateMap<Clan, Model.Clanovi>()
