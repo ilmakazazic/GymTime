@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace eTeretane.Model
 {
@@ -8,8 +6,6 @@ namespace eTeretane.Model
     {
         public int KorisnickiNalogId { get; set; }
         public  string Username { get; set; }
-
         public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
-
     }
 }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.Services;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eTeretane.WebAPI.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class PlacanjeClanarineController : ControllerBase
@@ -45,6 +39,5 @@ namespace eTeretane.WebAPI.Controllers
         {
             return _service.Update(id, request);
         }
-
     }
 }

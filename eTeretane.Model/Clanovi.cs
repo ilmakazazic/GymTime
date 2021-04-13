@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eTeretane.Model
 {
@@ -12,18 +10,11 @@ namespace eTeretane.Model
         public DateTime DatumRegistracije { get; set; }
         public string Email { get; set; }
         public string KorisnickoIme { get; set; }
-
         public int KorisnickiNalogId { get; set; }
         public KorisnickiNalog KorisnickiNalog { get; set; }
         public int GradId { get; set; }
 
-        public string ImePrezime
-        {
-            get
-            {
-                return Ime + " " + Prezime;
-            }
-        }
+        public string ImePrezime => Ime + " " + Prezime;
 
         public override string ToString()
         {

@@ -2,10 +2,8 @@
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.Database;
 using eTeretane.WebAPI.EF;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTeretane.WebAPI.Services
@@ -20,7 +18,6 @@ namespace eTeretane.WebAPI.Services
         {
             var list = _context.Set<Trening>().Include(v=>v.Korisnik).Include(v => v.Teretana).ToList();
             return _mapper.Map<List<Model.Trening>>(list);
-
         }
 
         public override Model.Trening GetById(int id)
@@ -29,7 +26,6 @@ namespace eTeretane.WebAPI.Services
                 .Include(v => v.Teretana).Single(b=>b.TreningId==id);
 
             return _mapper.Map<Model.Trening>(entity);
-
         }
 
         public List<Model.Trening> GetByDateGym(string date, int Teretanaid, int TrenerId)
@@ -45,16 +41,8 @@ namespace eTeretane.WebAPI.Services
                 querry = querry.Where(x => x.DatumOdrzavanja.ToString() == date && x.TeretanaId == Teretanaid);
 
             }
-                                                                   
-
-            //var querry = _context.Set<Trening>().Where(x =>  x.TeretanaId == Teretanaid && x.KorisnikId == TrenerId).AsQueryable();
-
             var list = querry.OrderBy(c=>c.PocetakTreninga.TimeOfDay).ToList();
-
             return _mapper.Map<List<Model.Trening>>(list);
         }
-
-
-
     }
 }

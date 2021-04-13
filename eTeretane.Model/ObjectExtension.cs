@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace eTeretane.Model
@@ -13,7 +11,6 @@ namespace eTeretane.Model
     public static class ObjectExtension
     {
         public static JsonSerializer JsonSerializerSettings { get; set; }
-
         static ObjectExtension()
         {
             JsonSerializerSettings = new JsonSerializer();
@@ -28,7 +25,6 @@ namespace eTeretane.Model
             {
                 return null;
             }
-
 
             JToken token = metaToken as JToken;
             if (token == null)
@@ -93,7 +89,5 @@ namespace eTeretane.Model
 
             return url;
         }
-
-
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using eTeretane.Model;
 using Flurl.Http;
 
@@ -46,7 +43,6 @@ namespace eTeretane.Mobile
         {
             var url = $"{_apiurl}/{_route}/{id}";
 
-
             var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
@@ -55,7 +51,6 @@ namespace eTeretane.Mobile
         {
             var url = $"{_apiurl}/{_route}";
 
-
             return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
         }
 
@@ -63,20 +58,15 @@ namespace eTeretane.Mobile
         {
             var url = $"{_apiurl}/{_route}/{id}";
 
-
             return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
-
         }
 
         public async Task<T> GetByDateGym<T>(object date, object id, object id2)
         {
             var url = $"{_apiurl}/{_route}/GetByDateGym/{date}/{id}/{id2}";
 
-
             var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
     }
-
-
 }

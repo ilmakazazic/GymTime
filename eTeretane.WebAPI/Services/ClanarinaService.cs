@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.EF;
-using eTeretane.WebAPI.Exceptions;
 
 namespace eTeretane.WebAPI.Services
 {
@@ -14,6 +11,7 @@ namespace eTeretane.WebAPI.Services
     {
         private readonly eTeretaneContext _context;
         private readonly IMapper _mapper;
+
         public ClanarinaService(eTeretaneContext context, IMapper mapper)
         {
             _context = context;
@@ -52,9 +50,5 @@ namespace eTeretane.WebAPI.Services
             _context.SaveChanges();
             return _mapper.Map<Model.Clanarina>(entity);
         }
-
-
-
-
     }
 }

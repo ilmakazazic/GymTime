@@ -1,6 +1,4 @@
-﻿using System;
-
-using eTeretane.Mobile.Models;
+﻿using eTeretane.Mobile.Models;
 
 namespace eTeretane.Mobile.ViewModels
 {

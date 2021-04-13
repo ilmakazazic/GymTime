@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using eTeretane.Model.Requests;
 
 namespace eTeretane.WebAPI.Services
 {
-
     public interface IClanarina
     {
         List<Model.Clanarina> Get();

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
@@ -18,13 +15,13 @@ namespace eTeretane.WebAPI.Services
         private readonly IMapper _mapper;
         private readonly IKorisnickiNalogService _korisnickiNalogService;
 
-
         public ClanService(eTeretaneContext context, IMapper mapper, IKorisnickiNalogService nalog)
         {
             _context = context;
             _mapper = mapper;
             _korisnickiNalogService = nalog;
         }
+
         public List<Clanovi> Get(ClanSearchRequest request)
         {
             var querry = _context.Clan.AsQueryable();
@@ -81,7 +78,5 @@ namespace eTeretane.WebAPI.Services
             _context.SaveChanges();
             return _mapper.Map<Model.Clanovi>(entity);
         }
-
-
     }
 }

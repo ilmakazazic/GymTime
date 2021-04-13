@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.Database;
@@ -11,13 +8,10 @@ using eTeretane.WebAPI.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace eTeretane.WebAPI
@@ -36,7 +30,6 @@ namespace eTeretane.WebAPI
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
-
             services.AddMvc();
             
             services.AddSwaggerGen(c =>
@@ -65,8 +58,7 @@ namespace eTeretane.WebAPI
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-            var connection = @"Server=.;Database=160154;Trusted_Connection=True;MultipleActiveResultSets=true";
-            services.AddDbContext<eTeretaneContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<eTeretaneContext>();
 
 
             services.AddScoped<IKorisniciService, KorisniciService>();
@@ -75,17 +67,14 @@ namespace eTeretane.WebAPI
             services.AddScoped<IClanarina, ClanarinaService>();
             services.AddScoped<IPlacanjeClanarine, PlacanjeClanarineService>();
 
-
             services.AddScoped<IService<Model.Uloge, object>, BaseService<Model.Uloge, object, Uloga>>();
             services.AddScoped<IService<Model.TipClanarine, object>, BaseService<Model.TipClanarine, object, TipClanarine>>();
 
-            
             services.AddScoped<ICRUDService<Model.Grad, object, GradUpsetRequest, GradUpsetRequest>, BaseCRUDService<Model.Grad, object, Grad, GradUpsetRequest, GradUpsetRequest>>();
             services.AddScoped<ICRUDService<Model.Teretane, TeretanaSearchRequest, TeretanaUpsertRequest, TeretanaUpsertRequest>, TeretanaService>();
             services.AddScoped<ICRUDService<Model.Licenca, object, LicencaUpsertRequest, LicencaUpsertRequest>, BaseCRUDService<Model.Licenca, object, Licenca, LicencaUpsertRequest, LicencaUpsertRequest>>();
             services.AddScoped<ICRUDService<Model.KuponPopusti, KuponSearchRequest, KuponUpsertRequest, KuponUpsertRequest>, KuponService>();
             services.AddScoped<ICRUDService<Model.TreningDetalji, TreningDetaljiSearchRequest, TreningDetaljiUpsertRequest, TreningDetaljiUpsertRequest>, TreningDetaljiService>();
-
 
             services.AddScoped<ICRUDService<Model.TreningZahtjev, TreningZahtjevSearchRequest, TreningZahtjevUpsertRequest, TreningZahtjevUpsertRequest>, TreningZahtjevService>();
             services.AddScoped<ICRUDService<Model.TreningDodatni, TreningDodatniSearchRequest, TreningDodatniUpsertRequest, TreningDodatniUpsertRequest>, TreningDodatniService>();
@@ -102,21 +91,14 @@ namespace eTeretane.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
             app.UseAuthorization();
-
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

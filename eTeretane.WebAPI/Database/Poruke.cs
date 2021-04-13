@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eTeretane.WebAPI.Database
 {
@@ -10,10 +7,8 @@ namespace eTeretane.WebAPI.Database
         public int PorukeId { get; set; }
         public string Poruka { get; set; }
         public DateTime DatumVrijeme { get; set; }
-
         public int KorisnikId { get; set; }
         public Korisnik Korisnik { get; set; }
-
         public int  ClanId { get; set; }
         public Clan Clan { get; set; }
     }

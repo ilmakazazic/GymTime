@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eTeretane.Model
 {
@@ -15,7 +13,5 @@ namespace eTeretane.Model
         public bool Aktivan { get; set; }
         public int TeretanaId { get; set; }
         public string TeretanaString { get; set; }
-
-
     }
 }

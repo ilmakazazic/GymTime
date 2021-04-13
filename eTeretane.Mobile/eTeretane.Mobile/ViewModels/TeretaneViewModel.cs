@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using eTeretane.Model;
@@ -12,7 +11,6 @@ namespace eTeretane.Mobile.ViewModels
 {
     class TeretaneViewModel : BaseViewModel
     {
-
         private readonly APIServices _teretanaServices = new APIServices("Teretana");
         private readonly APIServices _clanService = new APIServices("Clan");
 
@@ -51,8 +49,6 @@ namespace eTeretane.Mobile.ViewModels
             {
                 TeretaneList.Add(teretane);
             }
-
-
         }
     }
 }

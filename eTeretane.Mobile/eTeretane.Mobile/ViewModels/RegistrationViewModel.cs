@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using eTeretane.Mobile.Views;
 using eTeretane.Model;
-using eTeretane.Model.Requests;
 using Xamarin.Forms;
 
 namespace eTeretane.Mobile.ViewModels
 {
     class RegistrationViewModel : BaseViewModel
     {
-
         private readonly APIServices _clanovi = new APIServices("Clan");
         private readonly APIServices _gradovi = new APIServices("Gradovi");
-
 
         public RegistrationViewModel()
         {
@@ -74,8 +68,6 @@ namespace eTeretane.Mobile.ViewModels
             set { SetProperty(ref _telefon, value); }
         }
 
-
-
         string _imeError = string.Empty;
         string _prezimeError = string.Empty;
         string _usernameError = string.Empty;
@@ -83,8 +75,6 @@ namespace eTeretane.Mobile.ViewModels
         string _confpassError = string.Empty;
         string _gradError = string.Empty;
         string _telefonError = string.Empty;
-
-
 
         public string ImeError
         {
@@ -135,7 +125,6 @@ namespace eTeretane.Mobile.ViewModels
         bool _visibleGrad = false;
         bool _visibleTelefon = false;
 
-
         public bool VisibleIme
         {
             get { return _visibleIme; }
@@ -174,7 +163,6 @@ namespace eTeretane.Mobile.ViewModels
 
         public ICommand InitCommand { get; set; }
 
-
         public ObservableCollection<Grad> GradoviList { get; set; } = new ObservableCollection<Grad>();
 
         public async Task PopuniGradove()
@@ -186,13 +174,10 @@ namespace eTeretane.Mobile.ViewModels
             {
                 GradoviList.Add(item);
             }
-
         }
-
 
         public async Task<bool> Validacija()
         {
-
             if (Ime == string.Empty)
             {
                 ImeError = "Ime je obavezno!";
@@ -203,7 +188,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             else if (Ime.Length < 2)
@@ -216,8 +200,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
-
                 return true;
             }
             else if (Ime.Any(char.IsDigit))
@@ -230,11 +212,8 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
-
                 return true;
             }
-
             else if (Prezime == string.Empty)
             {
                 PrezimeError = "Prezime je obavezno!";
@@ -245,7 +224,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             else if (Prezime.Length < 4)
@@ -258,7 +236,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             else if (Prezime.Any(char.IsDigit))
@@ -271,7 +248,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             else if (Grad == null)
@@ -284,7 +260,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             else if (Username == string.Empty)
@@ -297,7 +272,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             else if (Username.Length < 4)
@@ -310,7 +284,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisiblePass = false;
                 VisibleconfPass = false;
                 VisibleTel = false;
-
                 return true;
             }
             if (Username.Length >= 4)
@@ -328,12 +301,10 @@ namespace eTeretane.Mobile.ViewModels
                         VisiblePass = false;
                         VisibleconfPass = false;
                         VisibleTel = false;
-
                         return true;
                     }
                 }
             }
-
             if (Password == string.Empty)
             {
                 PassError = "Lozinka je obavezna!";
@@ -371,7 +342,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisibleTel = false;
                 return true;
             }
-
             if (Telefon == string.Empty)
             {
                 TelError = "Telefon je obavezan!";
@@ -444,7 +414,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisibleTel = true;
                 return true;
             }
-
             return false;
         }
     }

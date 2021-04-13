@@ -1,9 +1,7 @@
-﻿using eTeretane.WebAPI.Database;
+﻿using System;
+using eTeretane.WebAPI.Database;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace eTeretane.WebAPI.EF
 {
@@ -11,7 +9,6 @@ namespace eTeretane.WebAPI.EF
     {
         public eTeretaneContext()
         {
-
         }
         public eTeretaneContext(DbContextOptions<eTeretaneContext> options)
         : base(options)
@@ -39,14 +36,17 @@ namespace eTeretane.WebAPI.EF
         public DbSet<KuponPopust> KuponPopust { get; set; }
         public DbSet<KorisnickiNalog> KorisnickiNalog { get; set; }
         public DbSet<TreningDodatni> TreningDodatni { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlServer("Server=.;Database=160154;Trusted_Connection=True;MultipleActiveResultSets=true");
-
-            //Za publish
-            //optionsBuilder.UseSqlServer("Server=p1851rsdbserver.database.windows.net;Database=p1851RS_db;Trusted_Connection=False;MultipleActiveResultSets=true; User ID=Ilma; Password=123456Merima");
-
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            }
             base.OnConfiguring(optionsBuilder);
         }
     }

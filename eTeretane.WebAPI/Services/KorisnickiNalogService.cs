@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
@@ -17,6 +16,7 @@ namespace eTeretane.WebAPI.Services
     {
         private readonly eTeretaneContext _context;
         private readonly IMapper _mapper;
+        
         public KorisnickiNalogService(eTeretaneContext context, IMapper mapper)
         {
             _context = context;
@@ -81,7 +81,6 @@ namespace eTeretane.WebAPI.Services
                     throw new UserException("Username je zauzet!");
             }
 
-
             if (request.Password != null)
             {
                 if (request.Password != request.PasswordConfirmation)
@@ -93,7 +92,6 @@ namespace eTeretane.WebAPI.Services
             }
 
             entity.Username = request.Username;
-
             var entityUloge = _context.KorisniciUloge.Where(c => c.KorisnickiNalogId == entity.KorisnickiNalogId).ToList();
 
             foreach (var postojuceUloge in entityUloge)

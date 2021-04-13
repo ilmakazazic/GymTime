@@ -3,12 +3,8 @@ using eTeretane.Model;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.EF;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace eTeretane.WebAPI.Services
 {
@@ -42,7 +38,6 @@ namespace eTeretane.WebAPI.Services
             {
                 querry = querry.Where(x => x.KorisnickiNalog.Username.StartsWith(request.Prezime));
             }
-
             var list = querry.ToList();
             return _mapper.Map<List<Model.Korisnici>>(list);
         }
@@ -56,14 +51,11 @@ namespace eTeretane.WebAPI.Services
         public Korisnici Insert(KorisniciUpsertRequest request)
         {
             var entity = _mapper.Map<Database.Korisnik>(request);
-
             var nalogId = _korisnickiNalogService.Insert(request).KorisnickiNalogId;
-
             entity.KorisnickiNalogId = nalogId;
 
             _context.Korisnik.Add(entity);
             _context.SaveChanges();
-            
 
             foreach (var licenca in request.Licence)
             {
@@ -74,9 +66,7 @@ namespace eTeretane.WebAPI.Services
                 });
             }
             _context.SaveChanges();
-
             return _mapper.Map<Model.Korisnici>(entity);
-
         }
 
         public Korisnici Update(int id, KorisniciUpsertRequest request)
@@ -93,8 +83,6 @@ namespace eTeretane.WebAPI.Services
             _context.SaveChanges();
             return _mapper.Map<Model.Korisnici>(entity);
         }
-
-   
     }
 }
 

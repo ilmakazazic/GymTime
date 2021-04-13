@@ -1,9 +1,5 @@
 ﻿using AutoMapper;
 using eTeretane.WebAPI.EF;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eTeretane.WebAPI.Services
 {
@@ -12,7 +8,6 @@ namespace eTeretane.WebAPI.Services
         public BaseCRUDService(eTeretaneContext context, IMapper mapper) : base(context, mapper)
         {
         }
-
         public virtual TModel Insert(TInsert request)
         {
             var entity = _mapper.Map<TDatabase>(request);
@@ -22,7 +17,6 @@ namespace eTeretane.WebAPI.Services
 
             return _mapper.Map<TModel>(entity);
         }
-
         public virtual TModel Update(int id, TUpdate request)
         {
             var entity = _context.Set<TDatabase>().Find(id);
@@ -35,5 +29,4 @@ namespace eTeretane.WebAPI.Services
             return _mapper.Map<TModel>(entity);
         }
     }
-
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace eTeretane.Model
+﻿namespace eTeretane.Model
 {
     public class IzvjestajNajlojalnijiClanovi
     {
@@ -10,9 +6,6 @@ namespace eTeretane.Model
         public string Prezime { get; set; }
         public string Email { get; set; }
         public string KorisnickoIme { get; set; }
-
         public int brojRezervacija { get; set; }
-
-
     }
 }

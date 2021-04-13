@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eTeretane.Model.Requests
 {
@@ -13,6 +11,5 @@ namespace eTeretane.Model.Requests
         public int Broj_Koristenja { get; set; }
         public bool Aktivan { get; set; }
         public int TeretanaId { get; set; }
-
     }
 }

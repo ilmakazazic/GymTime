@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace eTeretane.Model
+﻿namespace eTeretane.Model
 {
     public class IzvjestajNajposjecenijiTreneri
     {
@@ -11,8 +7,6 @@ namespace eTeretane.Model
         public string KorisnickoIme { get; set; }
         public string ImePrezime { get; set; }
         public string Licence { get; set; }
-
         public int brojRezervacija { get; set; }
-
     }
 }

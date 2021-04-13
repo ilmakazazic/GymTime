@@ -3,10 +3,8 @@ using eTeretane.Model;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.Database;
 using eTeretane.WebAPI.EF;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTeretane.WebAPI.Services
@@ -31,7 +29,6 @@ namespace eTeretane.WebAPI.Services
                 //sortiranje na osnovu grada clanova
                 querry = querry.OrderByDescending(m => m.GradId == search.GradId ? 0 : 1);
             }
-
 
             var list = querry.ToList();
             return _mapper.Map<List<Model.Teretane>>(list);

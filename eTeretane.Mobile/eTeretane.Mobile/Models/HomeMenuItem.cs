@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace eTeretane.Mobile.Models
+﻿namespace eTeretane.Mobile.Models
 {
     public enum MenuItemType
     {

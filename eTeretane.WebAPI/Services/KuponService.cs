@@ -2,10 +2,8 @@
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.Database;
 using eTeretane.WebAPI.EF;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTeretane.WebAPI.Services

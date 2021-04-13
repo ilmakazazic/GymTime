@@ -1,8 +1,4 @@
 ﻿using Flurl.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using eTeretane.Model;
 
@@ -37,7 +33,6 @@ namespace eTeretane.WinUI
         {
             var url = $"{Properties.Settings.Default.API}/{_route}/{id}";
 
-
             var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
@@ -46,28 +41,22 @@ namespace eTeretane.WinUI
         {
             var url = $"{Properties.Settings.Default.API}/{_route}";
 
-
             return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
-
         }
 
         public async Task<T> Update<T>(object id, object request)
         {
             var url = $"{Properties.Settings.Default.API}/{_route}/{id}";
 
-
             return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
-
         }
 
         public async Task<T> GetByDateGym<T>(object date, object id, object id2)
         {
             var url = $"{Properties.Settings.Default.API}/{_route}/GetByDateGym/{date}/{id}/{id2}";
 
-
             var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             return result;
         }
-
     }
 }

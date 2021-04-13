@@ -1,35 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using eTeretane.Mobile.Views;
-using eTeretane.Model;
 using Xamarin.Forms;
 
 namespace eTeretane.Mobile.ViewModels
 {
     class LoginViewModel : BaseViewModel
     {
-
         string _username = string.Empty;
         string _password = string.Empty;
         string _userError = string.Empty;
         string _passError = string.Empty;
         bool _visible = false;
         bool _visiblePass = false;
-
-
         private readonly APIServices _clanServices = new APIServices("Clan");
         private readonly APIServices _korisnickiNalog = new APIServices("KorisnickiNalog");
 
         public LoginViewModel()
         {
-
             LoginCommand = new Command(async () => await Login());
-
         }
-
 
         public string Username
         {
@@ -76,7 +67,6 @@ namespace eTeretane.Mobile.ViewModels
                 IsBusy = true;
                 APIServices.Username = Username;
                 APIServices.Password = Password;
-
                 try
                 {
                     var allUsers = await _clanServices.Get<List<Model.Clanovi>>(null);
@@ -104,13 +94,9 @@ namespace eTeretane.Mobile.ViewModels
                 }
                 catch
                 {
-
                     await Application.Current.MainPage.DisplayAlert("Greška!", "Niste unijeli tacnu lozinku ili username", "OK");
                 }
-
-
             }
-
         }
 
         public async Task<bool> Validacija()
@@ -129,7 +115,6 @@ namespace eTeretane.Mobile.ViewModels
                 VisibleKors = false;
                 return true;
             }
-
             return false;
         }
     }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
@@ -16,13 +14,13 @@ namespace eTeretane.WebAPI.Services
         private readonly IMapper _mapper;
         private readonly IClanarina _clanarinaService;
 
-
         public PlacanjeClanarineService(eTeretaneContext context, IMapper mapper, IClanarina clanarina)
         {
             _context = context;
             _mapper = mapper;
             _clanarinaService = clanarina;
         }
+
         public List<PlacanjeClanarine> Get(PlacanjeClanarineSearchRequest search)
         {
             var querry = _context.PlacanjeClanarine.Include(x=>x.Clanarina)
@@ -80,7 +78,5 @@ namespace eTeretane.WebAPI.Services
             _context.SaveChanges();
             return _mapper.Map<Model.PlacanjeClanarine>(entity);
         }
-
-
     }
 }

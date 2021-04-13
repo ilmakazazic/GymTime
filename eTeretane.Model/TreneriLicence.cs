@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eTeretane.Model
 {
@@ -13,7 +11,5 @@ namespace eTeretane.Model
         public Korisnici Korisnik { get; set; }
         public int LicencaId { get; set; }
         public Licenca Licenca { get; set; }
-
     }
-
 }

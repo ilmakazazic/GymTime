@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations;
 
 namespace eTeretane.Model
 {
@@ -15,7 +12,6 @@ namespace eTeretane.Model
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
         public int GradId { get; set; }
-
         public string Grad { get; set; }
     }
 }

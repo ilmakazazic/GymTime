@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eTeretane.WebAPI.Database
 {
@@ -13,14 +10,9 @@ namespace eTeretane.WebAPI.Database
         public DateTime DatumRegistracije { get; set; }
         public string Email { get; set; }
         public  string Telefon { get; set; }
-
         public int GradId { get; set; }
         public Grad Grad { get; set; }
-
-
         public int KorisnickiNalogId { get; set; }
         public KorisnickiNalog KorisnickiNalog { get; set; }
-
-
     }
 }

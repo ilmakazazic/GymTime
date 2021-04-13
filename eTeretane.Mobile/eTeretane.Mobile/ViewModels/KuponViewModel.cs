@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using eTeretane.Model;
@@ -16,7 +15,6 @@ namespace eTeretane.Mobile.ViewModels
         public KuponViewModel()
         {
             InitCommand = new Command(async () => await PopuniKupone());
-
         }
 
         DateTime _datumOD = DateTime.Now;
@@ -26,16 +24,14 @@ namespace eTeretane.Mobile.ViewModels
             set { SetProperty(ref _datumOD, value); }
         }
 
-
         DateTime _datumDO = DateTime.Now;
         public DateTime DatumDO
         {
             get { return _datumDO; }
             set { SetProperty(ref _datumDO, value); }
         }
-
+        
         private decimal? _ukupno = 0;
-
         public decimal? Ukupno
         {
             get { return _ukupno; }
@@ -57,13 +53,8 @@ namespace eTeretane.Mobile.ViewModels
                 {
                     NovaLista.Add(item);
                     Ukupno = Ukupno + item.Postotak;
-
                 }
-
             }
-
         }
-
-
     }
 }

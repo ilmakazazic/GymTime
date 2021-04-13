@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using eTeretane.Model;
@@ -27,20 +24,14 @@ namespace eTeretane.Mobile.ViewModels
         public async Task Init()
         {
             TreningDetaljiSearchRequest search = new TreningDetaljiSearchRequest();
-
             search.clanId = APIServices.ClanId;
-
             var TreningDetalji = await _treningDetaljiServices.Get<IEnumerable<TreningDetalji>>(search);
-
             TreningDetaljiList.Clear();
             foreach (var trening in TreningDetalji)
             {
                 var tr = await _treningServices.GetById<Trening>(trening.TreningId);
                 TreningDetaljiList.Add(tr);
             }
-
-
         }
-
     }
 }

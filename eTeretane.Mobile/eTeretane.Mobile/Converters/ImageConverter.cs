@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using Xamarin.Forms;
 
 namespace eTeretane.Mobile.Converters
@@ -15,9 +13,7 @@ namespace eTeretane.Mobile.Converters
                 return null;
 
             byte[] bytes = value as byte[];
-
             Func<Stream> myFunc = () => new MemoryStream(bytes);
-
             return ImageSource.FromStream(myFunc);
         }
 

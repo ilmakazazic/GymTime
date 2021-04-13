@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
@@ -34,13 +32,10 @@ namespace eTeretane.WebAPI.Services
             else
             {
                 querry = querry.Where(x => x.Odobren == search.odobren);
-
             }
 
             var list = querry.ToList();
             return _mapper.Map<List<TreningZahtjev>>(list);
-
         }
-
     }
 }

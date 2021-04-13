@@ -16,7 +16,6 @@ namespace eTeretane.WebAPI.Security
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IKorisnickiNalogService _korisnickiNalogService;
-
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
@@ -55,7 +54,6 @@ namespace eTeretane.WebAPI.Security
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Username)
             };
-
 
             foreach (var role in user.KorisniciUloge)
             {

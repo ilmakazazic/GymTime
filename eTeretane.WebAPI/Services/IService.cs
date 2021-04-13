@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace eTeretane.WebAPI.Services
 {
-
     public interface IService<T, TSearch>
     {
         List<T> Get(TSearch search);
-
         T GetById(int id);
     }
 }

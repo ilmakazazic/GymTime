@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eTeretane.WebAPI.Database
 {
@@ -16,7 +13,5 @@ namespace eTeretane.WebAPI.Database
         public byte[] SlikaThumb { get; set; }
         public int GradId { get; set; }
         public Grad Grad { get; set; }
-
-
     }
 }

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
-using Xamarin.Forms;
-using TimePicker = Xamarin.Forms.PlatformConfiguration.iOSSpecific.TimePicker;
 
 namespace eTeretane.Mobile.ViewModels
 {
@@ -15,10 +12,8 @@ namespace eTeretane.Mobile.ViewModels
         private readonly APIServices _tipClanarineService = new APIServices("TipClanarine");
         private readonly APIServices _KuponService = new APIServices("Kupon");
 
-
         public ClanarinaViewModel()
         {
-
         }
 
         Teretane _teretane = new Teretane();
@@ -42,6 +37,7 @@ namespace eTeretane.Mobile.ViewModels
             get { return _cijenaSaPopustom; }
             set { SetProperty (ref _cijenaSaPopustom, value); }
         }
+        
         KuponPopusti _kupon = new KuponPopusti();
         public KuponPopusti Kupon
         {
@@ -61,8 +57,6 @@ namespace eTeretane.Mobile.ViewModels
             {
                 TipoviClanarina.Add(item);
             }
-
-            
         }
 
         public async Task PopuniKupone()
@@ -72,7 +66,6 @@ namespace eTeretane.Mobile.ViewModels
                 TeretanaId = Teretana.TeretanaId
             };
             var list = await _KuponService.Get<IEnumerable<KuponPopusti>>(search);
-
             Kuponi.Clear();
             foreach (var item in list)
             {
@@ -83,7 +76,6 @@ namespace eTeretane.Mobile.ViewModels
                 }
             }
         }
-
 
         public async Task UpdateujCijenu(double cijena)
         {

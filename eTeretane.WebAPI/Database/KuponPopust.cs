@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eTeretane.WebAPI.Database
 {
@@ -16,6 +13,5 @@ namespace eTeretane.WebAPI.Database
         public bool Aktivan { get; set; }
         public int TeretanaId { get; set; }
         public Teretana Teretana { get; set; }
-
     }
 }

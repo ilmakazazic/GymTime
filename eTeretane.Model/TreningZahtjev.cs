@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eTeretane.Model
 {
     public class TreningZahtjev
     {
         public int TreningZahtjevId { get; set; }
-
         public int ClanId { get; set; }
         public virtual Clanovi Clan { get; set; }
         public int TreningId { get; set; }
         public virtual Trening Trening { get; set; }
         public bool Odobren { get; set; }
-
-
         public string ClanIme { get; set; }
         public DateTime TreningDatum { get; set; }
         public DateTime TreningPocetak { get; set; }
@@ -22,9 +17,5 @@ namespace eTeretane.Model
         public int TrenutnoRezervacija { get; set; }
         public int TeretanaId { get; set; }
         public string TeretanaIme { get; set; }
-
-
-
-
     }
 }

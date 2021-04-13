@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using eTeretane.Model.Requests;
 using eTeretane.WebAPI.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
 namespace eTeretane.WebAPI.Mapper
 {
@@ -26,9 +21,8 @@ namespace eTeretane.WebAPI.Mapper
                 .ForMember(x=>x.KorisnickoIme, b=>b.MapFrom(l=>l.KorisnickiNalog.Username)); // means you want to map from User to UserDTO
             CreateMap<Korisnik, KorisniciUpsertRequest>().ReverseMap();
 
-            CreateMap<KorisnickiNalog, Model.KorisnickiNalog>().ReverseMap(); ; // means you want to map from User to UserDTO
+            CreateMap<KorisnickiNalog, Model.KorisnickiNalog>().ReverseMap(); // means you want to map from User to UserDTO
             CreateMap<KorisnickiNalog, KorisnickiNalogUpsertRequest>().ReverseMap();
-
 
             CreateMap<Uloga, Model.Uloge>().ReverseMap();
 
@@ -68,14 +62,12 @@ namespace eTeretane.WebAPI.Mapper
                 .ForMember(x => x.TeretanaIme, b => b.MapFrom(l => l.Trening.Teretana.Naziv));
             CreateMap<TreningZahtjevUpsertRequest, TreningZahtjev>().ReverseMap();
 
-
             CreateMap<TreningDodatni, Model.TreningDodatni>()
                 .ForMember(x => x.ClanIme, b => b.MapFrom(l => l.Clan.Ime + " " + l.Clan.Prezime))
                 .ForMember(x => x.TeretanaNaziv, b => b.MapFrom(l => l.Teretana.Naziv))
                 .ForMember(x => x.KorisnikIme, b => b.MapFrom(l => l.Korisnik.Ime + " " + l.Korisnik.Prezime))
                 .ReverseMap();
             CreateMap<TreningDodatniUpsertRequest, TreningDodatni>().ReverseMap();
-
 
             CreateMap<PlacanjeClanarine, Model.PlacanjeClanarine>()
                 .ForMember(x => x.ClanString, v => v.MapFrom(l => l.Clanarina.Clan.Ime + " " + l.Clanarina.Clan.Prezime))
@@ -84,19 +76,12 @@ namespace eTeretane.WebAPI.Mapper
                 .ForMember(x => x.cijenaString, b => b.MapFrom(l => l.Clanarina.TipClanarine.Cijena))
                 .ForMember(x => x.DatumIsteka, b => b.MapFrom(l => l.Clanarina.DatumIsteka.ToString()))
                 .ForMember(x => x.DatumUplate, b => b.MapFrom(l => l.Clanarina.DatumUplate.ToString())).ReverseMap();
-
             CreateMap<PlacanjeClanarine, PlacanjeClanarineUpsertRequest>().ReverseMap();
 
             CreateMap<Clanarina, Model.Clanarina>().ReverseMap();
             CreateMap<Clanarina, ClanarinaUpsertRequest>().ReverseMap();
 
-
-
             CreateMap<TipClanarine, Model.TipClanarine>().ReverseMap();
-
-            
-
         }
-
     }
 }

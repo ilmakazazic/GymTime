@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace eTeretane.Mobile.Models
+﻿namespace eTeretane.Mobile.Models
 {
     public class Item
     {

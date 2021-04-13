@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
 using eTeretane.Mobile.Models;
 using eTeretane.Mobile.Services;
 

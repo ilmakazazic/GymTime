@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using eTeretane.Mobile.Views;
 using eTeretane.Model;
-using eTeretane.Model.Requests;
 using Xamarin.Forms;
 
 namespace eTeretane.Mobile.ViewModels
@@ -34,6 +31,7 @@ namespace eTeretane.Mobile.ViewModels
             get { return _date; }
             set { SetProperty(ref _date, value); }
         }
+
         public int _korisnikId;
         public int KoriniskId
         {
@@ -41,15 +39,10 @@ namespace eTeretane.Mobile.ViewModels
             set { SetProperty(ref _korisnikId, value); }
         }
 
-
-  
         public async Task Init()
         {
-            //KoriniskId = APIServices.NalogId;
             var date = _date.Date.ToString("yyyy-MM-dd HH:mm:ss.fffffff");
             var list = await _treningServices.GetByDateGym<IEnumerable<Trening>>(date, Teretana.TeretanaId, 0);
-         
-
             var listDetalji = await _treningDetaljiServices.Get<IEnumerable<TreningDetalji>>(null);
             
             TreningList.Clear();
@@ -63,13 +56,9 @@ namespace eTeretane.Mobile.ViewModels
                         i++;
                     }
                 }
-                
                 trening.TrenutnoRezervisanih = i;
                 TreningList.Add(trening);
             }
         }
-
-      
-
     }
 }
