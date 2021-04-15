@@ -12,7 +12,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout HorizontalOptions="CenterAndExpand">
+            <StackLayout Padding="10" HorizontalOptions="CenterAndExpand">
                 <Label Text="Termini"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"
@@ -26,10 +26,11 @@
                    FontSize="16" />
 
             <DatePicker Date="{Binding Date}" 
-                        Format="D"
                         Margin="30, 0, 0, 30"
                         DateSelected="DatePicker_OnDateSelected" />
-            <Button Clicked="Button_OnClicked"  BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="DeepSkyBlue" FontSize="16" Text="Posalji zahtjev " />
+            <StackLayout  Padding="10, 5, 10, 5" >
+                <Button Clicked="Button_OnClicked"  BorderColor="DeepSkyBlue" BackgroundColor="Transparent" TextColor="DeepSkyBlue" FontSize="16" Text="Posalji zahtjev " />
+            </StackLayout>
             <ListView ItemsSource="{Binding TreningList}" ItemSelected="ListView_OnItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>

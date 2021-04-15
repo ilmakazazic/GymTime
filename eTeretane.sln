@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTeretane.Mobile.Android", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTeretane.Mobile.iOS", "eTeretane.Mobile\eTeretane.Mobile.iOS\eTeretane.Mobile.iOS.csproj", "{5310B872-EE26-4CC6-9C9B-5DB37B3B0592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eTeretane.Mobile", "eTeretane.Mobile\eTeretane.Mobile\eTeretane.Mobile.csproj", "{64E3B251-3925-45B2-9697-7373765DF4C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eTeretane.Mobile", "eTeretane.Mobile\eTeretane.Mobile\eTeretane.Mobile.csproj", "{64E3B251-3925-45B2-9697-7373765DF4C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,8 +130,6 @@ Global
 		{4FADCD11-5DE6-43D0-98BB-DA08824E2708}.Release|x86.Build.0 = Release|x86
 		{4FADCD11-5DE6-43D0-98BB-DA08824E2708}.Release|x86.Deploy.0 = Release|x86
 		{B6E28E1A-5A0A-45E2-B504-9D8C10188AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6E28E1A-5A0A-45E2-B504-9D8C10188AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6E28E1A-5A0A-45E2-B504-9D8C10188AC8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{B6E28E1A-5A0A-45E2-B504-9D8C10188AC8}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{B6E28E1A-5A0A-45E2-B504-9D8C10188AC8}.Debug|ARM.Build.0 = Debug|Any CPU
 		{B6E28E1A-5A0A-45E2-B504-9D8C10188AC8}.Debug|ARM.Deploy.0 = Debug|Any CPU

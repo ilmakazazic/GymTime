@@ -13,7 +13,7 @@
 
     <ContentPage.Content>
         <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#2D74AC" >
-            <Label Margin="20" FontSize="40" TextColor="LightGray"  Text="GymTime"
+            <Label Margin="20" FontSize="40" TextColor="AntiqueWhite"  Text="GymTime"
                    VerticalOptions="Center"
                    HorizontalOptions="Center"/>
 
@@ -30,8 +30,8 @@
                    IsVisible="{Binding VisiblePass}" TextColor="Red" />
 
 
-            <Button Command="{Binding LoginCommand}"  BackgroundColor="LightGreen" Text="Login"></Button>
-            <Button Clicked="Button_OnClicked"  BackgroundColor="Transparent" BorderColor="DeepSkyBlue" Text="Registracija"></Button>
+            <Button Command="{Binding LoginCommand}"  BackgroundColor="GreenYellow" TextColor="DimGray" Text="Login"></Button>
+            <Button Clicked="Button_OnClicked"  BackgroundColor="Transparent" BorderColor="DeepSkyBlue" TextColor="Silver" Text="Registracija"></Button>
 
 
         </StackLayout>

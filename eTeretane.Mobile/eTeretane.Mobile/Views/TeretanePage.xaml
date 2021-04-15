@@ -16,21 +16,20 @@
     </ContentPage.Resources>
 
 <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10, 10, 10, 0">
             <Label Text="Teretane"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
-                FontSize="Header"/>
+                FontSize="30" FontAttributes="Bold"/>
             <Label Text="Pretraga: " />
-            <Entry Text="{Binding Search}"></Entry>
+            <Entry  Text="{Binding Search}"></Entry>
             <Button Command="{Binding InitCommand}" Text="Pretraga"></Button>
 
-
-            <ListView ItemsSource="{Binding TeretaneList}" ItemSelected="ListView_OnItemSelected" >
+            <ListView  ItemsSource="{Binding TeretaneList}" ItemSelected="ListView_OnItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <StackLayout Padding="0, 5, 0, 5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <StackLayout>
                                     <Image Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></Image>
                                 </StackLayout>

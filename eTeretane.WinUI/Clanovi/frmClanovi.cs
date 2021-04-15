@@ -59,9 +59,6 @@ namespace eTeretane.WinUI.Clanovi
             var clanovi = await _clanService.Get<List<Model.Clanovi>>(search);
             dgvClanovi.AutoGenerateColumns = false;
             dgvClanovi.DataSource = clanovi;
-
-
-
         }
 
         private async Task LoadGradovi()

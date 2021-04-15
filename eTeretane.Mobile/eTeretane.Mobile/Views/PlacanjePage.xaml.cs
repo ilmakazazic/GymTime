@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using eTeretane.Mobile.ViewModels;
 using eTeretane.Model;
 using eTeretane.Model.Requests;
@@ -61,7 +58,7 @@ namespace eTeretane.Mobile.Views
             {
                 var tokenOprions = new TokenCreateOptions()
                 {
-                    Card = new CreditCardOptions()
+                    Card = new TokenCardOptions()
                     {
                         Number = CreditCardNumber.Text,
                         ExpMonth = Convert.ToInt64(CreditCardExpMonth.Text),
@@ -83,34 +80,17 @@ namespace eTeretane.Mobile.Views
                     Source = stripeToken.Id 
                 };
                 var customerService = new CustomerService();
-
-
-
                 var customerResponse = customerService.Create(customer);
 
-
-
-                // `source` is obtained with Stripe.js; see https://stripe.com/docs/payments/accept-a-payment-charges#web-create-token
                 var options = new ChargeCreateOptions
                 {
                     Amount = (long)model.CijenaSaPopustom * 100, //5000, 
                     Currency = "bam",
-                    //Source = stripeToken.Id, ukidas ga odavde, zato što token smiješ koristi samo jednom, ali umjesto toga, ovdje pišep
                     Customer = customerResponse.Id,
                     Description = "Nova uplata",
                 };
                 var service = new ChargeService();
                 service.Create(options);
-
-
-                //to je to haha
-                //sada ovdje kad se sve to izvrši praviš narudžbu i sve ostalo, prazniš korpu itd.
-
-
-                //ovdje ces da popunis PlacanjeClanarina tabelu i onda ces imati podatke koji ti trebaju
-                //znaci prosla uplata i tek onda
-
-
 
                 PlacanjeClanarineUpsertRequest input = new PlacanjeClanarineUpsertRequest();
 
@@ -166,9 +146,6 @@ namespace eTeretane.Mobile.Views
                 await model.UpdateujCijenu(selectedItem.Cijena);
 
             }
-
-
-
         }
 
         private async void Kupon_OnSelectedIndexChanged(object sender, EventArgs e)

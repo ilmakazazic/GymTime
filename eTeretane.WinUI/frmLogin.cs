@@ -56,5 +56,10 @@ namespace eTeretane.WinUI
             }
 
         }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout Padding="5">
             <StackLayout HorizontalOptions="CenterAndExpand">
-                <Label Text="Ispis kupona po teretani"
+                <Label Text="Ispis kupona"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"
                        Padding="20, 20, 20, 0"
@@ -29,7 +29,6 @@
                        FontSize="16" />
 
                 <DatePicker Date="{Binding DatumOD}" 
-                            Format="D"
                             Margin="30, 0, 0, 30"
                 />
             </StackLayout>
@@ -42,7 +41,6 @@
                        FontSize="16" />
 
                 <DatePicker Date="{Binding DatumDO}" 
-                            Format="D"
                             Margin="30, 0, 0, 30"
                 />
             </StackLayout>
